@@ -165,16 +165,17 @@
     }
     
     .decoracion {
-      position: absolute;
-      top: 150px;     /* distancia desde arriba */
-      left: 50%;     /* distancia desde la izquierda */
-      transform: translateX(-50%);    
-      width: 120px;   /* tamaño */
-      opacity: 0.55;  /* transparencia: 0 = invisible, 1 = opaco */
-      pointer-events: none;
-      z-index: -1;
-      animation: brillar 4s ease-in-out infinite;
-    }
+  position: fixed;          /* fija la imagen respecto a la ventana */
+  top: 150px;               /* distancia desde arriba (ajustable) */
+  left: 50%;                /* centrado horizontal */
+  transform: translateX(-50%);
+  width: 250px;
+  max-width: 90vw;          /* para que no se salga en pantallas pequeñas */
+  opacity: 0.55;
+  pointer-events: none;     /* que no interfiera con clicks */
+  z-index: -1;              /* detrás del contenido */
+  animation: brillar 4s ease-in-out infinite;
+}
 
     /* Animación mágica tipo "brillo" */
     @keyframes brillar {
@@ -189,7 +190,13 @@
         transform: scale(1.05);
       }
     }
-
+    
+    @media (max-width: 768px) {
+  .decoracion {
+    width: 180px;           /* tamaño menor en móviles */
+    top: 100px;             /* ajusta margen superior para móvil */
+  }
+}
   </style>
 </head>
 <body>
@@ -209,7 +216,7 @@
       <h2 class="fade-in">¡Nos casamos!</h2>
       <p class="fade-in">Síguenos en un día mágico e inolvidable.</p>
       
-      <img src="¿https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/novios.png?v=1750532505953" class="decoracion magica" alt="decoración" />
+      <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/novios.png?v=1750532505953" class="decoracion magica" alt="decoración" />
 
       <div class="separator fade-in">Nuestra Historia</div>
       <p class="fade-in" id="historia">
