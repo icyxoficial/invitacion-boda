@@ -45,6 +45,16 @@
       h3 { font-size: 26px; }
       p, li { font-size: 18px; }
       .btn { font-size: 18px; padding: 12px 28px; }
+
+      /* Ajustes para centrar y ajustar "Nuestra Historia" */
+      .separator {
+        font-size: 18px;
+        margin: 30px 10px 30px;
+      }
+      .separator::before,
+      .separator::after {
+        margin: 0 8px;
+      }
     }
 
     .flower-top-left, .flower-bottom-right {
@@ -57,9 +67,9 @@
       animation:float 4s ease-in-out infinite; position:relative; z-index:15;
     }
     .sobre:hover { transform:translateY(-18px); }
-    @keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);}}
+    @keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);} }
     .fadeOut { animation:fadeOut 1.5s forwards; }
-    @keyframes fadeOut {to { opacity:0; transform:scale(1.3) blur(4px);}}
+    @keyframes fadeOut {to { opacity:0; transform:scale(1.3) blur(4px);} }
 
     .container {
       max-width:850px; margin:0 auto;
@@ -155,39 +165,30 @@
     }
     
     .decoracion {
-  position: relative;
-  top: 150px;     /* distancia desde arriba */
-  left: 50%;     /* distancia desde la izquierda */
-  transform: translateX(-50%);    
-  width: 120px;   /* tamaño */
-  opacity: 0.55;  /* transparencia: 0 = invisible, 1 = opaco */
-  pointer-events: none;
-  z-index: -1;
-  animation: brillar 3s ease-in-out infinite;
-}
+      position: absolute;
+      top: 150px;     /* distancia desde arriba */
+      left: 50%;     /* distancia desde la izquierda */
+      transform: translateX(-50%);    
+      width: 120px;   /* tamaño */
+      opacity: 0.55;  /* transparencia: 0 = invisible, 1 = opaco */
+      pointer-events: none;
+      z-index: -1;
+      animation: brillar 4s ease-in-out infinite;
+    }
 
-/* Animación mágica tipo "brillo" */
-@keyframes brillar {
-  0%, 100% {
-    filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #f9d976) brightness(1);
-    opacity: 0.85;
-    transform: scale(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px #f9d976) brightness(1.3);
-    opacity: 1;
-    transform: scale(1.05);
-  }
-}
-
-/* Responsive para móvil */
-@media (max-width: 768px) {
-  .decoracion {
-    width: 80px;
-    top: 60px;
-    left: 10px;
-  }
-}
+    /* Animación mágica tipo "brillo" */
+    @keyframes brillar {
+      0%, 100% {
+        filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #f9d976) brightness(1);
+        opacity: 0.85;
+        transform: scale(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px #f9d976) brightness(1.3);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
 
   </style>
 </head>
@@ -208,7 +209,7 @@
       <h2 class="fade-in">¡Nos casamos!</h2>
       <p class="fade-in">Síguenos en un día mágico e inolvidable.</p>
       
-      <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/hh%20(1).png?v=1750530460288" class="decoracion magica" alt="decoración" />
+      <img src="¿https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/novios.png?v=1750532505953" class="decoracion magica" alt="decoración" />
 
       <div class="separator fade-in">Nuestra Historia</div>
       <p class="fade-in" id="historia">
