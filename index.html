@@ -166,7 +166,7 @@
     
     .decoracion {
   position: fixed;
-  top: 150px;
+  top: 80px;              /* 🔸 más arriba */
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -179,41 +179,44 @@
   display: block;
 }
 
-    /* Animación mágica tipo "brillo" */
-    @keyframes brillar {
-      0%, 100% {
-        filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #f9d976) brightness(1);
-        opacity: 0.15;
-        transform: scale(1);
-      }
-      50% {
-        filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px #f9d976) brightness(1.3);
-        opacity: 0.30;
-        transform: scale(1.05);
-      }
-    }
-    
-    @media (max-width: 768px) {
-  .decoracion {
-    width: 180px;           /* tamaño menor en móviles */
-    top: 100px;             /* ajusta margen superior para móvil */
+/* Animación mágica tipo "brillo" */
+@keyframes brillar {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #f9d976) brightness(1);
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px #f9d976) brightness(1.3);
+    opacity: 0.30;
+    transform: scale(1.05);
   }
 }
-    
-    .nombre-novios {
+
+@media (max-width: 768px) {
+  .decoracion {
+    width: 180px;
+    top: 40px; /* 🔸 más arriba aún en móviles */
+  }
+}
+
+.nombre-novios {
   display: block;
-  margin: 0 auto 5px;
+  position: relative;
+  top: -30px;           /* 🔹 Subimos manualmente */
+  margin: 0 auto;
   max-width: 100%;
-  width: 400px;
+  width: 420px;
   animation: aparecerBrillante 2.5s ease-out forwards;
   opacity: 0;
   filter: brightness(1.2) drop-shadow(0 0 10px #d1b24caa);
+  z-index: 5;
 }
 
 @keyframes aparecerBrillante {
   0% {
     opacity: 0;
-    transform: scale(0.9) translateY(20px);
+    transform: scale(0.9) translateY(5px);
     filter: brightness(0.8) blur(4px);
   }
   60% {
@@ -224,6 +227,13 @@
   100% {
     transform: scale(1.15);
     filter: brightness(1.15) drop-shadow(0 0 8px #d1b24c88);
+  }
+}
+
+@media (max-width: 900px) {
+  .nombre-novios {
+    width: 850px;
+    top: -30px;         /* 🔹 Más arriba en móvil */
   }
 }
 
