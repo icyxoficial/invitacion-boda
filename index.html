@@ -1,291 +1,336 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Invitación de Boda - Vasti & Iván</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Invitación Boda Vasti & Iván</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #0b1c2e 0%, #1a2c4a 100%);
+    color: #f0f4f8;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    padding: 40px 15px 60px;
+  }
+
+  /* Flores decorativas estilo acuarela */
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    pointer-events: none;
+    user-select: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.3;
+    z-index: 1;
+  }
+  body::before {
+    top: 0; left: 0;
+    width: 300px; height: 300px;
+    background-image: url('https://i.ibb.co/vvK3v3x/flower-acuarela-left.png');
+  }
+  body::after {
+    bottom: 0; right: 0;
+    width: 350px; height: 350px;
+    background-image: url('https://i.ibb.co/6WtG95h/flower-acuarela-right.png');
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(10, 25, 45, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(10, 25, 45, 0.9);
+    padding: 50px 40px 60px;
+    position: relative;
+    z-index: 10;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    color: #a1c4f4;
+    margin-bottom: 20px;
+    letter-spacing: 0.07em;
+    user-select: none;
+  }
+
+  h1 {
+    font-size: 72px;
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+
+  h3 {
+    font-size: 36px;
+    margin-top: 40px;
+  }
+
+  p, li {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #d0d7e6;
+    text-align: center;
+    max-width: 700px;
+    margin: 12px auto;
+    user-select: none;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0 35px;
+    color: #4a74bb;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-size: 24px;
+    position: relative;
+  }
+
+  .separator::before,
+  .separator::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #4a74bb, #2a4c7a);
+    border-radius: 4px;
+    margin: 0 15px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #2a4c7a;
+    color: #d6e1ff;
+    padding: 16px 48px;
+    font-size: 22px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    margin: 20px auto 40px;
+    transition: background 0.3s ease;
+    box-shadow: 0 0 20px #3f61adaa;
+  }
+
+  .btn:hover {
+    background: #456eb1;
+    box-shadow: 0 0 30px #5786e0cc;
+  }
+
+  iframe {
+    display: block;
+    margin: 30px auto 60px;
+    max-width: 720px;
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(56, 92, 174, 0.8);
+  }
+
+  .countdown {
+    font-size: 34px;
+    font-weight: 700;
+    text-align: center;
+    color: #a7baff;
+    margin-top: 30px;
+    user-select: none;
+  }
+
+  .gallery {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .gallery img {
+    width: calc(33% - 24px);
+    border-radius: 16px;
+    border: 3px solid #3f61ad;
+    box-shadow: 0 5px 18px rgba(56, 92, 174, 0.7);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 28px rgba(56, 92, 174, 0.9);
+  }
+
+  /* Sobre */
+  .sobre {
+    display: block;
+    margin: 80px auto 30px;
+    width: 260px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    user-select: none;
+    filter: drop-shadow(0 0 6px #6a9ae3);
+    animation: float 4s ease-in-out infinite;
+    position: relative;
+    z-index: 15;
+  }
+
+  .sobre:hover {
+    transform: translateY(-15px);
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
     }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #0b1c2e;
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-      min-height: 100vh;
-      position: relative;
-      padding-bottom: 50px;
-    }
-    h1, h2, h3 {
-      font-family: 'Great Vibes', cursive;
-    }
-    .center {
-      text-align: center;
-      padding: 80px 20px 40px;
-      position: relative;
-      z-index: 10;
-    }
-    .sobre {
-      width: 240px;
-      margin: 80px auto 40px;
-      cursor: pointer;
-      animation: float 4s ease-in-out infinite;
-      transition: transform 0.3s;
-      display: block;
-      z-index: 10;
-      position: relative;
-    }
-    .sobre:hover {
+    50% {
       transform: translateY(-15px);
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-    .fadeOut {
-      animation: fadeOut 1.5s forwards;
-    }
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        transform: scale(1.3);
-        filter: blur(5px);
-      }
-    }
-    #contenido {
-      display: none;
+  }
+
+  /* Fade out animation */
+  .fadeOut {
+    animation: fadeOut 1.5s forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
       opacity: 0;
-      transform: scale(0.95);
-      transition: all 1.5s ease;
-      max-width: 900px;
-      margin: 0 auto 60px;
-      padding: 30px 20px;
-      background: #11263e;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.7);
+      transform: scale(1.3);
+      filter: blur(4px);
     }
-    #contenido.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-    section {
-      margin: 60px auto;
-      padding: 40px 30px;
-      background: #122c4a;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.5);
-      max-width: 800px;
-    }
-    .separator {
-      display: flex;
-      align-items: center;
-      margin: 60px 0 30px;
-      color: #a1c4f4;
-      font-size: 26px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      user-select: none;
-      justify-content: center;
-    }
-    .separator::before,
-    .separator::after {
-      content: '';
-      flex: 1;
-      height: 3px;
-      background: linear-gradient(90deg, #244c7c, #1c3b64);
-      border-radius: 4px;
-      margin: 0 20px;
-    }
-    .button {
-      display: inline-block;
-      background: #1c3b64;
-      color: #fff;
-      padding: 18px 40px;
-      border: none;
-      border-radius: 40px;
-      font-size: 22px;
-      font-weight: 600;
-      margin: 30px 15px 0;
-      text-decoration: none;
-      transition: background 0.3s ease;
-      cursor: pointer;
-      user-select: none;
-    }
-    .button:hover {
-      background: #2a518c;
-    }
-    iframe, video {
-      width: 100%;
-      max-width: 720px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-      margin-top: 30px;
-    }
-    .countdown {
-      font-size: 32px;
-      margin-top: 30px;
-      font-weight: 700;
-      color: #7bb0ff;
-      letter-spacing: 0.05em;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .gallery img {
-      width: calc(33% - 20px);
-      border-radius: 14px;
-      border: 3px solid #244c7c;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.5);
-      user-select: none;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .gallery img:hover {
-      transform: scale(1.07);
-      box-shadow: 0 6px 25px rgba(0,0,0,0.8);
-    }
-    .flowers {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 220px;
-      pointer-events: none;
-      background: url('https://i.ibb.co/mJ45pZf/flower-top.png') center top no-repeat;
-      background-size: contain;
-      z-index: 1;
-    }
-    footer {
-      text-align: center;
-      padding: 30px 10px;
-      font-size: 18px;
-      color: #aac8ff;
-      user-select: none;
-      background: #08131f;
-      position: relative;
-      z-index: 10;
-    }
-  </style>
+  }
+
+  #invitation-content {
+    display: none;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 1.5s ease;
+  }
+
+  #invitation-content.visible {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 18px;
+    color: #a1b4f0;
+    user-select: none;
+    text-shadow: 0 0 5px #445fa7;
+  }
+</style>
 </head>
 <body>
-  <div class="flowers"></div>
-
-  <div class="center" id="inicio">
-    <img
-      src="https://i.ibb.co/0jTjsLQ/envelope-romantic.png"
-      class="sobre"
-      onclick="abrirInvitacion()"
-      alt="Sobre romántico"
-      draggable="false"
-    />
-    <h2 style="font-size: 32px; user-select:none;">Haz clic en el sobre para descubrir tu invitación</h2>
-  </div>
+  <img src="https://i.ibb.co/0jTjsLQ/envelope-romantic.png" alt="Sobre romántico" class="sobre" id="sobre" />
+  <h2 style="text-align:center; font-size: 28px; color:#c3d1ff; user-select:none;">Haz clic en el sobre para descubrir tu invitación</h2>
 
   <audio id="musica" preload="auto" loop>
-    <source
-      src="https://www.dl.dropboxusercontent.com/scl/fi/zpfqsywo7e6g7xh6xfflf/Lasso-Hasta-Ese-D-a-Lyric-Video.mp3?rlkey=74ch2xiq9bu0rwzo4u2jxmand&st=tdk4gq6t"
-      type="audio/mpeg"
-    />
+    <source src="https://www.dl.dropboxusercontent.com/scl/fi/zpfqsywo7e6g7xh6xfflf/Lasso-Hasta-Ese-D-a-Lyric-Video.mp3?rlkey=74ch2xiq9bu0rwzo4u2jxmand&st=tdk4gq6t" type="audio/mpeg" />
   </audio>
 
-  <div id="contenido">
-    <section class="center">
-      <h1 style="font-size: 84px; margin-bottom: 8px;">Vasti & Iván</h1>
-      <h2 style="font-size: 56px; margin-bottom: 16px;">¡Nos casamos!</h2>
-      <p style="font-size: 24px; max-width: 500px; margin: 0 auto;">
-        Síguenos en un día mágico e inolvidable.
-      </p>
-    </section>
+  <div id="invitation-content">
+    <div class="container">
+      <h1>Vasti & Iván</h1>
+      <h2>¡Nos casamos!</h2>
+      <p>Síguenos en un día mágico e inolvidable.</p>
 
-    <div class="separator">Nuestra Historia</div>
-    <section>
+      <div class="separator">Nuestra Historia</div>
       <iframe
         src="https://www.youtube.com/embed/TU-VIDEO-ID"
         frameborder="0"
         allowfullscreen
         title="Video de nuestra historia"
       ></iframe>
-    </section>
 
-    <div class="separator">Detalles del Evento</div>
-    <section class="center">
-      <p style="font-size: 26px; margin: 12px 0;">📅 <strong>Fecha:</strong> Sábado, 20 de diciembre de 2025</p>
-      <p style="font-size: 26px; margin: 12px 0;">⏰ <strong>Hora:</strong> 4:00 PM</p>
-      <p style="font-size: 26px; margin: 12px 0;">
-        📍 <strong>Lugar:</strong> Iglesia en Su Presencia
-      </p>
-      <a class="button" href="https://maps.app.goo.gl/N2YhQrtV5eGzxZRD9" target="_blank" rel="noopener noreferrer">Ver mapa</a>
+      <div class="separator">Detalles del Evento</div>
+      <p>📅 <strong>Fecha:</strong> Sábado, 20 de diciembre de 2025</p>
+      <p>⏰ <strong>Hora:</strong> 4:00 PM</p>
+      <p>📍 <strong>Lugar:</strong> Iglesia en Su Presencia</p>
+      <div style="text-align:center; margin: 20px 0;">
+        <a href="https://maps.app.goo.gl/N2YhQrtV5eGzxZRD9" target="_blank" class="btn" rel="noopener noreferrer">Ver Mapa</a>
+      </div>
 
       <div class="countdown" id="cuenta"></div>
 
-      <h3 style="font-size: 38px; margin-top: 48px;">🎩 Código de Vestimenta</h3>
-      <p style="font-size: 22px; margin: 12px 0;">
-        Formal Elegante – Tonos neutros o navy
-      </p>
+      <h3>Código de Vestimenta</h3>
+      <p>Formal Elegante – Tonos neutros o navy</p>
 
-      <h3 style="font-size: 38px; margin-top: 48px;">🎁 Ofrenda Monetaria</h3>
-      <p style="font-size: 22px; margin: 12px 0;">
-        Gracias por tu cariño. Si deseas hacernos un regalo, puedes transferir a:
-      </p>
-      <p style="font-size: 22px; margin: 8px 0;">
-        <strong>CLABE: 123456789012345678</strong>
-      </p>
-      <p style="font-size: 22px; margin-bottom: 24px;">
-        <strong>Nombre: Vasti Fernández</strong>
-      </p>
+      <h3>Ofrenda Monetaria</h3>
+      <p>Gracias por tu cariño. Si deseas hacernos un regalo, puedes transferir a:</p>
+      <p><strong>CLABE:</strong> 123456789012345678</p>
+      <p><strong>Nombre:</strong> Vasti Fernández</p>
 
-      <a class="button" href="https://forms.gle/TU-FORMULARIO-DE-CONFIRMACION" target="_blank" rel="noopener noreferrer">
-        Confirmar Asistencia
-      </a>
-    </section>
+      <div style="text-align:center; margin-top: 30px;">
+        <a href="https://forms.gle/TU-FORMULARIO-DE-CONFIRMACION" target="_blank" class="btn" rel="noopener noreferrer">Confirmar Asistencia</a>
+      </div>
 
-    <div class="separator">Galería</div>
-    <section class="gallery center">
-      <img src="https://via.placeholder.com/300x400?text=Foto1" alt="Foto 1" draggable="false" />
-      <img src="https://via.placeholder.com/300x400?text=Foto2" alt="Foto 2" draggable="false" />
-      <img src="https://via.placeholder.com/300x400?text=Foto3" alt="Foto 3" draggable="false" />
-    </section>
+      <div class="separator">Galería</div>
+      <div class="gallery">
+        <img src="https://via.placeholder.com/300x400?text=Foto1" alt="Foto 1" draggable="false" />
+        <img src="https://via.placeholder.com/300x400?text=Foto2" alt="Foto 2" draggable="false" />
+        <img src="https://via.placeholder.com/300x400?text=Foto3" alt="Foto 3" draggable="false" />
+      </div>
+    </div>
   </div>
 
   <footer>Con cariño, Vasti & Iván 💙</footer>
 
   <script>
-    function abrirInvitacion() {
-      document.querySelector('.sobre').classList.add('fadeOut');
-      document.querySelector('#inicio h2').classList.add('fadeOut');
+    const sobre = document.getElementById('sobre');
+    const contenido = document.getElementById('invitation-content');
+    const musica = document.getElementById('musica');
+    const textoSobre = sobre.nextElementSibling;
+
+    sobre.addEventListener('click', () => {
+      sobre.classList.add('fadeOut');
+      textoSobre.classList.add('fadeOut');
+
       setTimeout(() => {
-        document.getElementById('inicio').style.display = 'none';
-        const contenido = document.getElementById('contenido');
-        contenido.style.display = 'block';
-        setTimeout(() => contenido.classList.add('visible'), 100);
-        const audio = document.getElementById('musica');
-        audio.volume = 1;
-        audio.play().catch(() => {
-          // Autoplay bloqueo, no pasa nada
+        sobre.style.display = 'none';
+        textoSobre.style.display = 'none';
+        contenido.classList.add('visible');
+        musica.volume = 1;
+        musica.play().catch(() => {
+          // bloqueo autoplay
         });
       }, 1500);
-    }
+    });
 
-    const fechaCDMX = new Date('2025-12-20T16:00:00-06:00').getTime();
+    // Cuenta regresiva CDMX 20 dic 2025 4pm (-6 GMT)
+    const fechaEvento = new Date('2025-12-20T16:00:00-06:00').getTime();
     const cuenta = document.getElementById('cuenta');
 
     setInterval(() => {
       const ahora = new Date().getTime();
-      const diff = fechaCDMX - ahora;
+      const diff = fechaEvento - ahora;
 
       if (diff > 0) {
         const d = Math.floor(diff / (1000 * 60 * 60 * 24));
         const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((diff % (1000 * 60)) / 1000);
-        cuenta.innerHTML = `Faltan ${d}d ${h}h ${m}m ${s}s para el gran día 💍`;
+        cuenta.textContent = `Faltan ${d}d ${h}h ${m}m ${s}s para el gran día 💍`;
       } else {
-        cuenta.innerHTML = `¡Hoy es el gran día! 🎉💖`;
+        cuenta.textContent = `¡Hoy es el gran día! 🎉💖`;
       }
     }, 1000);
   </script>
