@@ -236,40 +236,7 @@
     top: -30px;         /* 🔹 Más arriba en móvil */
   }
 }
-    .marco-fondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.5;
-  animation: brilloMarco 6s ease-in-out infinite;
-}
-
-/* Brillo mágico */
-@keyframes brilloMarco {
-  0%, 100% {
-    filter: drop-shadow(0 0 3px #fff5cc) drop-shadow(0 0 6px #ffe082);
-    opacity: 0.45;
-    transform: scale(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 10px #ffd54f) drop-shadow(0 0 20px #fff8e1);
-    opacity: 0.65;
-    transform: scale(1.01);
-  }
-}
-
-@media (max-width: 768px) {
-  .marco-fondo {
-    height: 100vh;
-    width: 100vw;
-  }
-}
-
+    
   </style>
 </head>
 <body>
