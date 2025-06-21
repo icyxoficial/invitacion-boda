@@ -8,24 +8,34 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
 
-    body {
-      font-family:'Montserrat',sans-serif;
-      background-color:#f5ede3;
-      color:#4b3f32;
-      padding:50px 20px 80px;
-      position:relative;
-      overflow-x:hidden;
+    html {
+      min-height: 100%;
+      height: auto;
+      
+      /* Fondo aplicado al html para cubrir todo el sitio */
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: auto 100%; /* alto 100%, ancho auto */
       background-position: center top;
       background-attachment: scroll;
       transition: background-image 1s ease-in-out, background-color 0.5s ease;
+      background-color: #f5ede3;
+      color: #4b3f32;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      min-height: 100%;
+      padding:50px 20px 80px;
+      position: relative;
+      overflow-x: hidden;
+      background-color: transparent; /* El fondo está en html */
+      color: inherit;
+      font-family: inherit;
     }
 
     @media (max-width: 768px) {
       body {
         padding: 30px 10px 60px;
-        background-position: center top;
       }
       .container {
         padding: 40px 20px 50px;
@@ -53,7 +63,7 @@
 
     .container {
       max-width:850px; margin:0 auto;
-      background:#fff9f2; border-radius:18px;
+      background:transparent; border-radius:18px;
       box-shadow:0 6px 20px rgba(75,63,50,0.2);
       padding:60px 50px 70px; position:relative; z-index:10;
     }
@@ -236,8 +246,8 @@
         animateWords();
 
         // Cambia aquí tu imagen de fondo (usa un link directo)
-        document.body.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/blueeee.jpg?v=1750516274274')";
-        document.body.style.backgroundColor = "transparent";
+        document.documentElement.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/b.jpg?v=1750518092573')";
+        document.documentElement.style.backgroundColor = "transparent";
       }, 1500);
     });
 
