@@ -4,52 +4,50 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Invitación Boda Vasti & Iván</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
 <style>
-  /* Reset */
+  /* Reset básico */
   * {
     margin: 0; padding: 0; box-sizing: border-box;
   }
 
   body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #0b1c2e 0%, #1a2c4a 100%);
-    color: #f0f4f8;
+    background: #f5ede3; /* beige cálido */
+    color: #4b3f32; /* marrón oscuro */
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
-    padding: 40px 15px 60px;
+    padding: 50px 20px 80px;
   }
 
-  /* Flores decorativas estilo acuarela */
-  body::before, body::after {
-    content: "";
+  /* Flores decorativas */
+  .flower-top-left, .flower-bottom-right {
     position: fixed;
     pointer-events: none;
     user-select: none;
-    background-repeat: no-repeat;
-    background-size: contain;
-    opacity: 0.3;
+    opacity: 0.35;
     z-index: 1;
   }
-  body::before {
-    top: 0; left: 0;
-    width: 300px; height: 300px;
-    background-image: url('https://i.ibb.co/vvK3v3x/flower-acuarela-left.png');
+  .flower-top-left {
+    top: 0;
+    left: 0;
+    width: 280px;
   }
-  body::after {
-    bottom: 0; right: 0;
-    width: 350px; height: 350px;
-    background-image: url('https://i.ibb.co/6WtG95h/flower-acuarela-right.png');
+  .flower-bottom-right {
+    bottom: 0;
+    right: 0;
+    width: 300px;
   }
 
+  /* Contenedor principal */
   .container {
-    max-width: 900px;
+    max-width: 850px;
     margin: 0 auto;
-    background: rgba(10, 25, 45, 0.85);
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(10, 25, 45, 0.9);
-    padding: 50px 40px 60px;
+    background: #fff9f2;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(75,63,50,0.2);
+    padding: 60px 50px 70px;
     position: relative;
     z-index: 10;
   }
@@ -57,51 +55,52 @@
   h1, h2, h3 {
     font-family: 'Great Vibes', cursive;
     text-align: center;
-    color: #a1c4f4;
-    margin-bottom: 20px;
-    letter-spacing: 0.07em;
+    color: #5b4a36;
     user-select: none;
+    letter-spacing: 0.07em;
   }
 
   h1 {
     font-size: 72px;
-    margin-top: 0;
+    margin-bottom: 10px;
   }
 
   h2 {
-    font-size: 48px;
+    font-size: 44px;
+    margin-bottom: 24px;
   }
 
   h3 {
-    font-size: 36px;
-    margin-top: 40px;
+    font-size: 34px;
+    margin-top: 48px;
+    margin-bottom: 14px;
   }
 
   p, li {
     font-size: 20px;
-    line-height: 1.5;
-    color: #d0d7e6;
-    text-align: center;
-    max-width: 700px;
+    line-height: 1.6;
+    color: #6c5b45;
+    max-width: 720px;
     margin: 12px auto;
+    text-align: center;
     user-select: none;
   }
 
   ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
   }
 
+  /* Separadores decorativos */
   .separator {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 50px 0 35px;
-    color: #4a74bb;
+    margin: 50px 0 38px;
+    color: #a17c50;
     font-weight: 600;
+    font-size: 22px;
     letter-spacing: 0.1em;
-    font-size: 24px;
-    position: relative;
   }
 
   .separator::before,
@@ -109,63 +108,58 @@
     content: '';
     flex: 1;
     height: 2px;
-    background: linear-gradient(90deg, #4a74bb, #2a4c7a);
-    border-radius: 4px;
-    margin: 0 15px;
+    background: linear-gradient(90deg, #cdb678, #aa8f3b);
+    border-radius: 3px;
+    margin: 0 16px;
   }
 
+  /* Botones elegantes */
   .btn {
     display: inline-block;
-    background: #2a4c7a;
-    color: #d6e1ff;
-    padding: 16px 48px;
-    font-size: 22px;
+    background: #aa8f3b;
+    color: #fff;
+    padding: 14px 44px;
+    font-size: 20px;
+    font-weight: 700;
     border-radius: 40px;
     border: none;
     cursor: pointer;
     user-select: none;
     text-decoration: none;
-    margin: 20px auto 40px;
+    margin: 24px auto 42px;
     transition: background 0.3s ease;
-    box-shadow: 0 0 20px #3f61adaa;
+    box-shadow: 0 0 15px #aa8f3bbb;
+    text-align: center;
   }
 
   .btn:hover {
-    background: #456eb1;
-    box-shadow: 0 0 30px #5786e0cc;
+    background: #d1b24c;
+    box-shadow: 0 0 30px #d1b24cbb;
   }
 
   iframe {
     display: block;
-    margin: 30px auto 60px;
+    margin: 30px auto 58px;
     max-width: 720px;
     width: 100%;
     border-radius: 18px;
-    box-shadow: 0 0 25px rgba(56, 92, 174, 0.8);
+    box-shadow: 0 6px 24px rgba(170, 143, 59, 0.4);
   }
 
-  .countdown {
-    font-size: 34px;
-    font-weight: 700;
-    text-align: center;
-    color: #a7baff;
-    margin-top: 30px;
-    user-select: none;
-  }
-
+  /* Galería */
   .gallery {
     display: flex;
     justify-content: center;
     gap: 24px;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   .gallery img {
     width: calc(33% - 24px);
-    border-radius: 16px;
-    border: 3px solid #3f61ad;
-    box-shadow: 0 5px 18px rgba(56, 92, 174, 0.7);
+    border-radius: 14px;
+    border: 3px solid #cdb678;
+    box-shadow: 0 4px 15px rgba(170, 143, 59, 0.5);
     cursor: pointer;
     user-select: none;
     transition: transform 0.3s ease;
@@ -173,25 +167,25 @@
 
   .gallery img:hover {
     transform: scale(1.08);
-    box-shadow: 0 8px 28px rgba(56, 92, 174, 0.9);
+    box-shadow: 0 6px 20px rgba(170, 143, 59, 0.8);
   }
 
-  /* Sobre */
+  /* Sobre romántico */
   .sobre {
     display: block;
-    margin: 80px auto 30px;
+    margin: 90px auto 35px;
     width: 260px;
     cursor: pointer;
     transition: transform 0.3s ease;
     user-select: none;
-    filter: drop-shadow(0 0 6px #6a9ae3);
+    filter: drop-shadow(0 0 7px #bfa360);
     animation: float 4s ease-in-out infinite;
     position: relative;
     z-index: 15;
   }
 
   .sobre:hover {
-    transform: translateY(-15px);
+    transform: translateY(-18px);
   }
 
   @keyframes float {
@@ -199,7 +193,7 @@
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-15px);
+      transform: translateY(-18px);
     }
   }
 
@@ -219,72 +213,127 @@
   #invitation-content {
     display: none;
     opacity: 0;
-    transform: scale(0.95);
-    transition: all 1.5s ease;
+    transform: translateY(30px);
+    transition: all 1s ease;
   }
 
   #invitation-content.visible {
     display: block;
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
+  }
+
+  /* Animación gradual de textos al hacer scroll */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Cuenta regresiva grande y centrada */
+  .countdown {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    color: #aa8f3b;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    user-select: none;
+    text-shadow: 0 0 10px #7a602a;
   }
 
   footer {
     text-align: center;
     margin-top: 60px;
     font-size: 18px;
-    color: #a1b4f0;
+    color: #aa8f3b;
     user-select: none;
-    text-shadow: 0 0 5px #445fa7;
+    text-shadow: 0 0 7px #7a602a;
   }
 </style>
 </head>
 <body>
-  <img src="https://i.ibb.co/0jTjsLQ/envelope-romantic.png" alt="Sobre romántico" class="sobre" id="sobre" />
-  <h2 style="text-align:center; font-size: 28px; color:#c3d1ff; user-select:none;">Haz clic en el sobre para descubrir tu invitación</h2>
 
+  <!-- Flores decorativas -->
+  <img src="https://ibb.co/LDL57f9b" alt="Flores decorativas izquierda" class="flower-top-left" draggable="false" />
+  <img src="https://i.ibb.co/tBzZdrM/flower-right.png" alt="Flores decorativas derecha" class="flower-bottom-right" draggable="false" />
+
+  <!-- Sobre inicial -->
+  <img
+    src="https://i.ibb.co/0jTjsLQ/envelope-romantic.png"
+    alt="Sobre romántico"
+    class="sobre"
+    id="sobre"
+    draggable="false"
+  />
+  <h2 style="text-align:center; font-size: 28px; color:#b9994a; user-select:none;" id="texto-sobre">
+    Haz clic en el sobre para descubrir tu invitación
+  </h2>
+
+  <!-- Música -->
   <audio id="musica" preload="auto" loop>
     <source src="https://www.dl.dropboxusercontent.com/scl/fi/zpfqsywo7e6g7xh6xfflf/Lasso-Hasta-Ese-D-a-Lyric-Video.mp3?rlkey=74ch2xiq9bu0rwzo4u2jxmand&st=tdk4gq6t" type="audio/mpeg" />
   </audio>
 
+  <!-- Contenido de invitación -->
   <div id="invitation-content">
     <div class="container">
-      <h1>Vasti & Iván</h1>
-      <h2>¡Nos casamos!</h2>
-      <p>Síguenos en un día mágico e inolvidable.</p>
+      <h1 class="fade-in">Vasti & Iván</h1>
+      <h2 class="fade-in">¡Nos casamos!</h2>
+      <p class="fade-in">Síguenos en un día mágico e inolvidable.</p>
 
-      <div class="separator">Nuestra Historia</div>
+      <div class="separator fade-in">Nuestra Historia</div>
       <iframe
+        class="fade-in"
         src="https://www.youtube.com/embed/TU-VIDEO-ID"
         frameborder="0"
         allowfullscreen
         title="Video de nuestra historia"
       ></iframe>
 
-      <div class="separator">Detalles del Evento</div>
-      <p>📅 <strong>Fecha:</strong> Sábado, 20 de diciembre de 2025</p>
-      <p>⏰ <strong>Hora:</strong> 4:00 PM</p>
-      <p>📍 <strong>Lugar:</strong> Iglesia en Su Presencia</p>
-      <div style="text-align:center; margin: 20px 0;">
-        <a href="https://maps.app.goo.gl/N2YhQrtV5eGzxZRD9" target="_blank" class="btn" rel="noopener noreferrer">Ver Mapa</a>
+      <div class="separator fade-in">Detalles del Evento</div>
+      <p class="fade-in">📅 <strong>Fecha:</strong> Sábado, 20 de diciembre de 2025</p>
+      <p class="fade-in">⏰ <strong>Hora:</strong> 4:00 PM</p>
+      <p class="fade-in">
+        📍 <strong>Lugar:</strong> Iglesia en Su Presencia
+      </p>
+      <div style="text-align:center; margin: 20px 0;" class="fade-in">
+        <a
+          href="https://maps.app.goo.gl/N2YhQrtV5eGzxZRD9"
+          target="_blank"
+          class="btn"
+          rel="noopener noreferrer"
+          >Ver Mapa</a
+        >
       </div>
 
       <div class="countdown" id="cuenta"></div>
 
-      <h3>Código de Vestimenta</h3>
-      <p>Formal Elegante – Tonos neutros o navy</p>
+      <h3 class="fade-in">Código de Vestimenta</h3>
+      <p class="fade-in">Formal Elegante – Tonos neutros o navy</p>
 
-      <h3>Ofrenda Monetaria</h3>
-      <p>Gracias por tu cariño. Si deseas hacernos un regalo, puedes transferir a:</p>
-      <p><strong>CLABE:</strong> 123456789012345678</p>
-      <p><strong>Nombre:</strong> Vasti Fernández</p>
+      <h3 class="fade-in">Ofrenda Monetaria</h3>
+      <p class="fade-in">Gracias por tu cariño. Si deseas hacernos un regalo, puedes transferir a:</p>
+      <p class="fade-in"><strong>CLABE:</strong> 123456789012345678</p>
+      <p class="fade-in"><strong>Nombre:</strong> Vasti Fernández</p>
 
-      <div style="text-align:center; margin-top: 30px;">
-        <a href="https://forms.gle/TU-FORMULARIO-DE-CONFIRMACION" target="_blank" class="btn" rel="noopener noreferrer">Confirmar Asistencia</a>
+      <div style="text-align:center; margin-top: 30px;" class="fade-in">
+        <a
+          href="https://forms.gle/TU-FORMULARIO-DE-CONFIRMACION"
+          target="_blank"
+          class="btn"
+          rel="noopener noreferrer"
+          >Confirmar Asistencia</a
+        >
       </div>
 
-      <div class="separator">Galería</div>
-      <div class="gallery">
+      <div class="separator fade-in">Galería</div>
+      <div class="gallery fade-in">
         <img src="https://via.placeholder.com/300x400?text=Foto1" alt="Foto 1" draggable="false" />
         <img src="https://via.placeholder.com/300x400?text=Foto2" alt="Foto 2" draggable="false" />
         <img src="https://via.placeholder.com/300x400?text=Foto3" alt="Foto 3" draggable="false" />
@@ -295,29 +344,30 @@
   <footer>Con cariño, Vasti & Iván 💙</footer>
 
   <script>
-    const sobre = document.getElementById('sobre');
-    const contenido = document.getElementById('invitation-content');
-    const musica = document.getElementById('musica');
-    const textoSobre = sobre.nextElementSibling;
+    // Al hacer click en el sobre: desaparecer y mostrar invitación + música
+    const sobre = document.getElementById("sobre");
+    const contenido = document.getElementById("invitation-content");
+    const musica = document.getElementById("musica");
+    const textoSobre = document.getElementById("texto-sobre");
 
-    sobre.addEventListener('click', () => {
-      sobre.classList.add('fadeOut');
-      textoSobre.classList.add('fadeOut');
+    sobre.addEventListener("click", () => {
+      sobre.classList.add("fadeOut");
+      textoSobre.classList.add("fadeOut");
 
       setTimeout(() => {
-        sobre.style.display = 'none';
-        textoSobre.style.display = 'none';
-        contenido.classList.add('visible');
+        sobre.style.display = "none";
+        textoSobre.style.display = "none";
+        contenido.classList.add("visible");
         musica.volume = 1;
         musica.play().catch(() => {
-          // bloqueo autoplay
+          // bloqueo autoplay, no pasa nada
         });
       }, 1500);
     });
 
     // Cuenta regresiva CDMX 20 dic 2025 4pm (-6 GMT)
-    const fechaEvento = new Date('2025-12-20T16:00:00-06:00').getTime();
-    const cuenta = document.getElementById('cuenta');
+    const fechaEvento = new Date("2025-12-20T16:00:00-06:00").getTime();
+    const cuenta = document.getElementById("cuenta");
 
     setInterval(() => {
       const ahora = new Date().getTime();
@@ -333,6 +383,22 @@
         cuenta.textContent = `¡Hoy es el gran día! 🎉💖`;
       }
     }, 1000);
+
+    // Animación gradual de textos al hacer scroll
+    function reveal() {
+      const elementos = document.querySelectorAll(".fade-in");
+      elementos.forEach((el) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+          el.classList.add("visible");
+        }
+      });
+    }
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("load", reveal);
   </script>
 </body>
 </html>
