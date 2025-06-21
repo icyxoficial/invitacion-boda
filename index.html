@@ -182,21 +182,21 @@
 /* Animación mágica tipo "brillo" */
 @keyframes brillar {
   0%, 100% {
-    filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #f9d976) brightness(1);
+    filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #030078) brightness(1);
     opacity: 0.15;
     transform: scale(1);
   }
   50% {
-    filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px #f9d976) brightness(1.3);
-    opacity: 0.30;
-    transform: scale(1.05);
+    filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px #030078) brightness(1.3);
+    opacity: 0.45;
+    transform: scale(1.1);
   }
 }
 
 @media (max-width: 768px) {
   .decoracion {
     width: 180px;
-    top: 40px; /* 🔸 más arriba aún en móviles */
+    top: 80px; /* 🔸 más arriba aún en móviles */
   }
 }
 
@@ -216,7 +216,7 @@
 @keyframes aparecerBrillante {
   0% {
     opacity: 0;
-    transform: scale(0.9) translateY(5px);
+    transform: scale(0.9) translateY(40px);
     filter: brightness(0.8) blur(4px);
   }
   60% {
@@ -252,7 +252,7 @@
 
   <div id="invitation-content">
     <div class="container">
-      <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/ET.png?v=1750534452319" 
+      <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/ET.png?v=1750536251890" 
      alt="Vasti e Iván" 
      class="nombre-novios fade-in" />
 
