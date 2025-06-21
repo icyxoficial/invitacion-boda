@@ -1,277 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Invitación Boda Vasti & Iván</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
-<style>
-  /* Reset básico */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: #f5ede3; /* beige cálido */
-    color: #4b3f32; /* marrón oscuro */
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-    padding: 50px 20px 80px;
-  }
-
-  /* Flores decorativas */
-  .flower-top-left, .flower-bottom-right {
-    position: fixed;
-    pointer-events: none;
-    user-select: none;
-    opacity: 0.35;
-    z-index: 1;
-  }
-  .flower-top-left {
-    top: 0;
-    left: 0;
-    width: 280px;
-  }
-  .flower-bottom-right {
-    bottom: 0;
-    right: 0;
-    width: 300px;
-  }
-
-  /* Contenedor principal */
-  .container {
-    max-width: 850px;
-    margin: 0 auto;
-    background: #fff9f2;
-    border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(75,63,50,0.2);
-    padding: 60px 50px 70px;
-    position: relative;
-    z-index: 10;
-  }
-
-  h1, h2, h3 {
-    font-family: 'Great Vibes', cursive;
-    text-align: center;
-    color: #5b4a36;
-    user-select: none;
-    letter-spacing: 0.07em;
-  }
-
-  h1 {
-    font-size: 72px;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-size: 44px;
-    margin-bottom: 24px;
-  }
-
-  h3 {
-    font-size: 34px;
-    margin-top: 48px;
-    margin-bottom: 14px;
-  }
-
-  p, li {
-    font-size: 20px;
-    line-height: 1.6;
-    color: #6c5b45;
-    max-width: 720px;
-    margin: 12px auto;
-    text-align: center;
-    user-select: none;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  /* Separadores decorativos */
-  .separator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 50px 0 38px;
-    color: #a17c50;
-    font-weight: 600;
-    font-size: 22px;
-    letter-spacing: 0.1em;
-  }
-
-  .separator::before,
-  .separator::after {
-    content: '';
-    flex: 1;
-    height: 2px;
-    background: linear-gradient(90deg, #cdb678, #aa8f3b);
-    border-radius: 3px;
-    margin: 0 16px;
-  }
-
-  /* Botones elegantes */
-  .btn {
-    display: inline-block;
-    background: #aa8f3b;
-    color: #fff;
-    padding: 14px 44px;
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 40px;
-    border: none;
-    cursor: pointer;
-    user-select: none;
-    text-decoration: none;
-    margin: 24px auto 42px;
-    transition: background 0.3s ease;
-    box-shadow: 0 0 15px #aa8f3bbb;
-    text-align: center;
-  }
-
-  .btn:hover {
-    background: #d1b24c;
-    box-shadow: 0 0 30px #d1b24cbb;
-  }
-
-  iframe {
-    display: block;
-    margin: 30px auto 58px;
-    max-width: 720px;
-    width: 100%;
-    border-radius: 18px;
-    box-shadow: 0 6px 24px rgba(170, 143, 59, 0.4);
-  }
-
-  /* Galería */
-  .gallery {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-  }
-
-  .gallery img {
-    width: calc(33% - 24px);
-    border-radius: 14px;
-    border: 3px solid #cdb678;
-    box-shadow: 0 4px 15px rgba(170, 143, 59, 0.5);
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.3s ease;
-  }
-
-  .gallery img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(170, 143, 59, 0.8);
-  }
-
-  /* Sobre romántico */
-  .sobre {
-    display: block;
-    margin: 90px auto 35px;
-    width: 260px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    user-select: none;
-    filter: drop-shadow(0 0 7px #bfa360);
-    animation: float 4s ease-in-out infinite;
-    position: relative;
-    z-index: 15;
-  }
-
-  .sobre:hover {
-    transform: translateY(-18px);
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación Boda Vasti & Iván</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Montserrat',sans-serif;
+      background:#f5ede3;
+      color:#4b3f32;
+      padding:50px 20px 80px;
+      position:relative;
+      overflow-x:hidden;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: top center;
+      transition: background-image 1.5s ease-in-out;
     }
-    50% {
-      transform: translateY(-18px);
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px 10px 60px;
+        background-position: center top;
+      }
+      .container {
+        padding: 40px 20px 50px;
+      }
+      h1 { font-size: 48px; }
+      h2 { font-size: 32px; }
+      h3 { font-size: 26px; }
+      p, li { font-size: 18px; }
+      .btn { font-size: 18px; padding: 12px 28px; }
     }
-  }
 
-  /* Fade out animation */
-  .fadeOut {
-    animation: fadeOut 1.5s forwards;
-  }
-
-  @keyframes fadeOut {
-    to {
-      opacity: 0;
-      transform: scale(1.3);
-      filter: blur(4px);
+    .flower-top-left, .flower-bottom-right {
+      display: none;
     }
-  }
+    .flower-top-left { top:0; left:0; width:280px; }
+    .flower-bottom-right { bottom:0; right:0; width:300px; }
 
-  #invitation-content {
-    display: none;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease;
-  }
+    .sobre {
+      width:260px; display:block; margin:90px auto 35px;
+      cursor:pointer; filter:drop-shadow(0 0 7px #bfa360);
+      animation:float 4s ease-in-out infinite; position:relative; z-index:15;
+    }
+    .sobre:hover { transform:translateY(-18px); }
+    @keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);}}
+    .fadeOut { animation:fadeOut 1.5s forwards; }
+    @keyframes fadeOut {to { opacity:0; transform:scale(1.3) blur(4px);}}
 
-  #invitation-content.visible {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-  }
+    .container {
+      max-width:850px; margin:0 auto;
+      background:#fff9f2; border-radius:18px;
+      box-shadow:0 6px 20px rgba(75,63,50,0.2);
+      padding:60px 50px 70px; position:relative; z-index:10;
+    }
+    h1,h2,h3 {
+      font-family:'Great Vibes', cursive;
+      text-align:center; letter-spacing:0.07em;
+      color:#5b4a36;
+    }
+    h1 { font-size:72px; margin-bottom:10px; }
+    h2 { font-size:44px; margin-bottom:24px; }
+    h3 { font-size:34px; margin:48px 0 14px; }
+    p, li {
+      font-size:20px; line-height:1.6;
+      color:#6c5b45; margin:12px auto;
+      max-width:720px; text-align:center;
+      word-break: break-word;
+    }
+    .separator {
+      display:flex; align-items:center; justify-content:center;
+      margin:50px 0 38px; color:#a17c50;
+      font-size:22px; font-weight:600; letter-spacing:0.1em;
+    }
+    .separator::before, .separator::after {
+      content:''; flex:1; height:2px;
+      background:linear-gradient(90deg,#cdb678,#aa8f3b);
+      border-radius:3px; margin:0 16px;
+    }
+    .btn {
+      display:inline-block; background:#aa8f3b; color:#fff;
+      padding:14px 44px; font-size:20px; font-weight:700;
+      border-radius:40px; text-decoration:none;
+      box-shadow:0 0 15px #aa8f3bbb;
+      margin:24px auto 42px;
+      transition:background 0.3s; user-select:none;
+      text-align:center;
+    }
+    .btn:hover { background:#d1b24c; box-shadow:0 0 30px #d1b24cbb; }
+    iframe {
+      display:block; margin:30px auto 58px;
+      width:100%; max-width:720px; border-radius:18px;
+      box-shadow:0 6px 24px rgba(170,143,59,0.4);
+    }
+    .gallery {
+      display:flex; justify-content:center;
+      flex-wrap:wrap; gap:24px; margin-top:20px;
+    }
+    .gallery img {
+      width:calc(33% - 24px); border-radius:14px;
+      border:3px solid #cdb678;
+      box-shadow:0 4px 15px rgba(170,143,59,0.5);
+      transition:transform 0.3s; cursor:pointer;
+    }
+    .gallery img:hover {
+      transform:scale(1.08);
+      box-shadow:0 6px 20px rgba(170,143,59,0.8);
+    }
+    #invitation-content { display:none; opacity:0; transform:translateY(30px); transition:all 1s ease; }
+    #invitation-content.visible { display:block; opacity:1; transform:translateY(0); }
+    .fade-in {
+      opacity:0; transform:translateY(15px);
+      transition:opacity 1s ease, transform 1s ease;
+    }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+    .countdown {
+      font-family:'Great Vibes', cursive; font-size:48px;
+      text-align:center; color:#aa8f3b;
+      text-shadow:0 0 10px #7a602a;
+      margin:40px 0 60px; user-select:none;
+    }
+    footer {
+      text-align:center; font-size:18px; color:#aa8f3b;
+      margin-top:60px; text-shadow:0 0 7px #7a602a;
+    }
 
-  /* Animación gradual de textos al hacer scroll */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 1s ease, transform 1s ease;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Cuenta regresiva grande y centrada */
-  .countdown {
-    font-family: 'Great Vibes', cursive;
-    font-size: 48px;
-    font-weight: 700;
-    text-align: center;
-    color: #aa8f3b;
-    margin-top: 40px;
-    margin-bottom: 60px;
-    user-select: none;
-    text-shadow: 0 0 10px #7a602a;
-  }
-
-  footer {
-    text-align: center;
-    margin-top: 60px;
-    font-size: 18px;
-    color: #aa8f3b;
-    user-select: none;
-    text-shadow: 0 0 7px #7a602a;
-  }
-</style>
+    .word {
+      display:inline-block;
+      opacity:0;
+      transition:opacity 0.4s ease, text-shadow 0.6s ease;
+      margin-right:4px;
+      white-space:nowrap;
+    }
+    .word.visible {
+      opacity:1;
+      text-shadow:0 0 4px #d1b24caa, 0 0 7px #d1b24ccc;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Flores decorativas -->
-  <img src="https://ibb.co/LDL57f9b" alt="Flores decorativas izquierda" class="flower-top-left" draggable="false" />
-  <img src="https://i.ibb.co/tBzZdrM/flower-right.png" alt="Flores decorativas derecha" class="flower-bottom-right" draggable="false" />
+  <img src="https://cdn.glitch.global/4d6c28ec-668e-4a0b-b114-118562562bad/cf2327345a1901d415e59a880e6004ca.jpg?v=1750486545401" class="flower-top-left" alt="" draggable="false" />
+  <img src="https://cdn.glitch.global/4d6c28ec-668e-4a0b-b114-118562562bad/cf2327345a1901d415e59a880e6004ca.jpg?v=1750486545401" class="flower-bottom-right" alt="" draggable="false" />
 
-  <!-- Sobre inicial -->
-  <img
-    src="https://ibb.co/Fbcn4hH7"
-    alt="Sobre romántico"
-    class="sobre"
-    id="sobre"
-    draggable="false"
-  />
-  <h2 style="text-align:center; font-size: 28px; color:#b9994a; user-select:none;" id="texto-sobre">
+  <!-- Sobre -->
+  <img src="https://cdn.glitch.global/4d6c28ec-668e-4a0b-b114-118562562bad/SOBRE.png?v=1750487037349" id="sobre" class="sobre" alt="" draggable="false" />
+  <h2 id="texto-sobre" style="text-align:center;font-size:28px;color:#b9994a;">
     Haz clic en el sobre para descubrir tu invitación
   </h2>
 
@@ -280,7 +159,7 @@
     <source src="https://www.dl.dropboxusercontent.com/scl/fi/zpfqsywo7e6g7xh6xfflf/Lasso-Hasta-Ese-D-a-Lyric-Video.mp3?rlkey=74ch2xiq9bu0rwzo4u2jxmand&st=tdk4gq6t" type="audio/mpeg" />
   </audio>
 
-  <!-- Contenido de invitación -->
+  <!-- Contenido -->
   <div id="invitation-content">
     <div class="container">
       <h1 class="fade-in">Vasti & Iván</h1>
@@ -288,55 +167,55 @@
       <p class="fade-in">Síguenos en un día mágico e inolvidable.</p>
 
       <div class="separator fade-in">Nuestra Historia</div>
-      <iframe
-        class="fade-in"
-        src="https://www.youtube.com/embed/TU-VIDEO-ID"
-        frameborder="0"
-        allowfullscreen
-        title="Video de nuestra historia"
-      ></iframe>
+      <p class="fade-in" id="historia">
+        No fue un encuentro casual…  
+        Fue el cruce perfecto de dos caminos que se buscaban sin saberlo.
+
+        Desde el primer instante, nuestros silencios se entendieron,  
+        nuestras risas se hicieron eco… y nuestras miradas hablaron sin miedo.
+
+        No todo fue fácil, pero cada paso nos enseñó a elegirnos.  
+        A tomarnos de la mano, incluso en la tormenta.  
+        A construir, a sanar, a soñar.
+
+        Hoy, después de tantas historias compartidas,  
+        decidimos comenzar la más importante:
+
+        una historia escrita con amor verdadero,  
+        y con ustedes como testigos de nuestro “para siempre”.
+      </p>
 
       <div class="separator fade-in">Detalles del Evento</div>
       <p class="fade-in">📅 <strong>Fecha:</strong> Sábado, 20 de diciembre de 2025</p>
       <p class="fade-in">⏰ <strong>Hora:</strong> 4:00 PM</p>
-      <p class="fade-in">
-        📍 <strong>Lugar:</strong> Iglesia en Su Presencia
-      </p>
-      <div style="text-align:center; margin: 20px 0;" class="fade-in">
-        <a
-          href="https://maps.app.goo.gl/N2YhQrtV5eGzxZRD9"
-          target="_blank"
-          class="btn"
-          rel="noopener noreferrer"
-          >Ver Mapa</a
-        >
+      <p class="fade-in">📍 <strong>Lugar:</strong> Iglesia en Su Presencia</p>
+      <div class="fade-in" style="text-align:center;margin:20px 0;">
+        <a href="https://maps.app.goo.gl/N2YhQrtV5eGzxZRD9" class="btn" target="_blank">Ver Mapa</a>
       </div>
 
-      <div class="countdown" id="cuenta"></div>
+      <div class="countdown fade-in" id="cuenta"></div>
 
       <h3 class="fade-in">Código de Vestimenta</h3>
       <p class="fade-in">Formal Elegante – Tonos neutros o navy</p>
 
       <h3 class="fade-in">Ofrenda Monetaria</h3>
-      <p class="fade-in">Gracias por tu cariño. Si deseas hacernos un regalo, puedes transferir a:</p>
+      <p class="fade-in">No tenemos mesa de regalos,<br>
+        porque ya tenemos todo lo que necesitamos:<br>
+        el uno al otro… y a ti.<br>
+        Pero si deseas apoyarnos,<br>
+        una aportación monetaria será muy bienvenida.</p>
       <p class="fade-in"><strong>CLABE:</strong> 123456789012345678</p>
       <p class="fade-in"><strong>Nombre:</strong> Vasti Fernández</p>
 
-      <div style="text-align:center; margin-top: 30px;" class="fade-in">
-        <a
-          href="https://forms.gle/TU-FORMULARIO-DE-CONFIRMACION"
-          target="_blank"
-          class="btn"
-          rel="noopener noreferrer"
-          >Confirmar Asistencia</a
-        >
+      <div class="fade-in" style="text-align:center;margin:30px 0;">
+        <a href="https://forms.gle/TU-FORMULARIO-DE-CONFIRMACION" class="btn" target="_blank">Confirmar Asistencia</a>
       </div>
 
       <div class="separator fade-in">Galería</div>
       <div class="gallery fade-in">
-        <img src="https://via.placeholder.com/300x400?text=Foto1" alt="Foto 1" draggable="false" />
-        <img src="https://via.placeholder.com/300x400?text=Foto2" alt="Foto 2" draggable="false" />
-        <img src="https://via.placeholder.com/300x400?text=Foto3" alt="Foto 3" draggable="false" />
+        <img src="https://via.placeholder.com/300x400?text=Foto1" alt="" draggable="false" />
+        <img src="https://via.placeholder.com/300x400?text=Foto2" alt="" draggable="false" />
+        <img src="https://via.placeholder.com/300x400?text=Foto3" alt="" draggable="false" />
       </div>
     </div>
   </div>
@@ -344,61 +223,89 @@
   <footer>Con cariño, Vasti & Iván 💙</footer>
 
   <script>
-    // Al hacer click en el sobre: desaparecer y mostrar invitación + música
-    const sobre = document.getElementById("sobre");
-    const contenido = document.getElementById("invitation-content");
-    const musica = document.getElementById("musica");
-    const textoSobre = document.getElementById("texto-sobre");
+    const sobre = document.getElementById('sobre');
+    const textoSobre = document.getElementById('texto-sobre');
+    const contenido = document.getElementById('invitation-content');
+    const musica = document.getElementById('musica');
 
-    sobre.addEventListener("click", () => {
-      sobre.classList.add("fadeOut");
-      textoSobre.classList.add("fadeOut");
-
+    sobre.addEventListener('click', () => {
+      sobre.classList.add('fadeOut');
+      textoSobre.classList.add('fadeOut');
       setTimeout(() => {
-        sobre.style.display = "none";
-        textoSobre.style.display = "none";
-        contenido.classList.add("visible");
+        sobre.style.display = 'none';
+        textoSobre.style.display = 'none';
+        contenido.classList.add('visible');
         musica.volume = 1;
-        musica.play().catch(() => {
-          // bloqueo autoplay, no pasa nada
-        });
-      }, 1500);
+        musica.play().catch(()=>{});
+        revealAll();
+        animateWords();
+
+        // CAMBIA AQUÍ la URL por la de tu fondo
+        document.body.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/Blue.png?v=1750515811275')";
+      },1500);
     });
 
-    // Cuenta regresiva CDMX 20 dic 2025 4pm (-6 GMT)
-    const fechaEvento = new Date("2025-12-20T16:00:00-06:00").getTime();
-    const cuenta = document.getElementById("cuenta");
-
+    const fechaEvento = new Date('2025-12-20T16:00:00-06:00').getTime();
+    const cuenta = document.getElementById('cuenta');
     setInterval(() => {
-      const ahora = new Date().getTime();
-      const diff = fechaEvento - ahora;
-
-      if (diff > 0) {
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((diff % (1000 * 60)) / 1000);
-        cuenta.textContent = `Faltan ${d}d ${h}h ${m}m ${s}s para el gran día 💍`;
+      const diff = fechaEvento - Date.now();
+      if(diff>0){
+        const d=Math.floor(diff/86400000);
+        const h=Math.floor((diff%86400000)/3600000);
+        const m=Math.floor((diff%3600000)/60000);
+        const s=Math.floor((diff%60000)/1000);
+        cuenta.textContent=`Faltan ${d}d ${h}h ${m}m ${s}s para el gran día 💍`;
       } else {
-        cuenta.textContent = `¡Hoy es el gran día! 🎉💖`;
+        cuenta.textContent='¡Hoy es el gran día! 🎉💖';
       }
-    }, 1000);
+    },1000);
 
-    // Animación gradual de textos al hacer scroll
-    function reveal() {
-      const elementos = document.querySelectorAll(".fade-in");
-      elementos.forEach((el) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const revealPoint = 100;
+    function revealAll(){
+      const els = document.querySelectorAll('.fade-in');
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      },{threshold:0.1});
+      els.forEach(el=>io.observe(el));
+    }
 
-        if (elementTop < windowHeight - revealPoint) {
-          el.classList.add("visible");
+    function animateWords() {
+      const historia = document.getElementById('historia');
+      const text = historia.textContent;
+      historia.innerHTML = '';
+      const lines = text.split('\n');
+
+      lines.forEach((line, idx) => {
+        if (line.trim() === '') {
+          historia.appendChild(document.createElement('br'));
+        } else {
+          const words = line.trim().split(/\s+/);
+          words.forEach((word, i) => {
+            const span = document.createElement('span');
+            span.className = 'word';
+            span.textContent = word;
+            historia.appendChild(span);
+            if(i !== words.length - 1) historia.appendChild(document.createTextNode(' '));
+          });
+          if(idx !== lines.length - 1) historia.appendChild(document.createElement('br'));
         }
       });
+
+      const wordSpans = historia.querySelectorAll('.word');
+      let delay = 0;
+      const delayStep = 120;
+      wordSpans.forEach((span) => {
+        setTimeout(() => {
+          span.classList.add('visible');
+          setTimeout(() => span.style.textShadow = 'none', 1200);
+        }, delay);
+        delay += delayStep;
+      });
     }
-    window.addEventListener("scroll", reveal);
-    window.addEventListener("load", reveal);
   </script>
 </body>
 </html>
