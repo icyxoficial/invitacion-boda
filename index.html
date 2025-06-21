@@ -7,18 +7,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
+
     body {
       font-family:'Montserrat',sans-serif;
-      background:#f5ede3;
+      background-color:#f5ede3;
       color:#4b3f32;
       padding:50px 20px 80px;
       position:relative;
       overflow-x:hidden;
-      background-size: cover;
       background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
       background-attachment: scroll;
-      background-position: top center;
-      transition: background-image 1.5s ease-in-out;
+      transition: background-image 1s ease-in-out, background-color 0.5s ease;
     }
 
     @media (max-width: 768px) {
@@ -39,8 +40,6 @@
     .flower-top-left, .flower-bottom-right {
       display: none;
     }
-    .flower-top-left { top:0; left:0; width:280px; }
-    .flower-bottom-right { bottom:0; right:0; width:300px; }
 
     .sobre {
       width:260px; display:block; margin:90px auto 35px;
@@ -58,6 +57,7 @@
       box-shadow:0 6px 20px rgba(75,63,50,0.2);
       padding:60px 50px 70px; position:relative; z-index:10;
     }
+
     h1,h2,h3 {
       font-family:'Great Vibes', cursive;
       text-align:center; letter-spacing:0.07em;
@@ -66,12 +66,14 @@
     h1 { font-size:72px; margin-bottom:10px; }
     h2 { font-size:44px; margin-bottom:24px; }
     h3 { font-size:34px; margin:48px 0 14px; }
+
     p, li {
       font-size:20px; line-height:1.6;
       color:#6c5b45; margin:12px auto;
       max-width:720px; text-align:center;
       word-break: break-word;
     }
+
     .separator {
       display:flex; align-items:center; justify-content:center;
       margin:50px 0 38px; color:#a17c50;
@@ -82,6 +84,7 @@
       background:linear-gradient(90deg,#cdb678,#aa8f3b);
       border-radius:3px; margin:0 16px;
     }
+
     .btn {
       display:inline-block; background:#aa8f3b; color:#fff;
       padding:14px 44px; font-size:20px; font-weight:700;
@@ -92,11 +95,7 @@
       text-align:center;
     }
     .btn:hover { background:#d1b24c; box-shadow:0 0 30px #d1b24cbb; }
-    iframe {
-      display:block; margin:30px auto 58px;
-      width:100%; max-width:720px; border-radius:18px;
-      box-shadow:0 6px 24px rgba(170,143,59,0.4);
-    }
+
     .gallery {
       display:flex; justify-content:center;
       flex-wrap:wrap; gap:24px; margin-top:20px;
@@ -111,19 +110,23 @@
       transform:scale(1.08);
       box-shadow:0 6px 20px rgba(170,143,59,0.8);
     }
+
     #invitation-content { display:none; opacity:0; transform:translateY(30px); transition:all 1s ease; }
     #invitation-content.visible { display:block; opacity:1; transform:translateY(0); }
+
     .fade-in {
       opacity:0; transform:translateY(15px);
       transition:opacity 1s ease, transform 1s ease;
     }
     .fade-in.visible { opacity:1; transform:translateY(0); }
+
     .countdown {
       font-family:'Great Vibes', cursive; font-size:48px;
       text-align:center; color:#aa8f3b;
       text-shadow:0 0 10px #7a602a;
       margin:40px 0 60px; user-select:none;
     }
+
     footer {
       text-align:center; font-size:18px; color:#aa8f3b;
       margin-top:60px; text-shadow:0 0 7px #7a602a;
@@ -144,22 +147,15 @@
 </head>
 <body>
 
-  <!-- Flores decorativas -->
-  <img src="https://cdn.glitch.global/4d6c28ec-668e-4a0b-b114-118562562bad/cf2327345a1901d415e59a880e6004ca.jpg?v=1750486545401" class="flower-top-left" alt="" draggable="false" />
-  <img src="https://cdn.glitch.global/4d6c28ec-668e-4a0b-b114-118562562bad/cf2327345a1901d415e59a880e6004ca.jpg?v=1750486545401" class="flower-bottom-right" alt="" draggable="false" />
-
-  <!-- Sobre -->
   <img src="https://cdn.glitch.global/4d6c28ec-668e-4a0b-b114-118562562bad/SOBRE.png?v=1750487037349" id="sobre" class="sobre" alt="" draggable="false" />
   <h2 id="texto-sobre" style="text-align:center;font-size:28px;color:#b9994a;">
     Haz clic en el sobre para descubrir tu invitación
   </h2>
 
-  <!-- Música -->
   <audio id="musica" preload="auto" loop>
     <source src="https://www.dl.dropboxusercontent.com/scl/fi/zpfqsywo7e6g7xh6xfflf/Lasso-Hasta-Ese-D-a-Lyric-Video.mp3?rlkey=74ch2xiq9bu0rwzo4u2jxmand&st=tdk4gq6t" type="audio/mpeg" />
   </audio>
 
-  <!-- Contenido -->
   <div id="invitation-content">
     <div class="container">
       <h1 class="fade-in">Vasti & Iván</h1>
@@ -235,14 +231,14 @@
         sobre.style.display = 'none';
         textoSobre.style.display = 'none';
         contenido.classList.add('visible');
-        musica.volume = 1;
         musica.play().catch(()=>{});
         revealAll();
         animateWords();
 
-        // CAMBIA AQUÍ la URL por la de tu fondo
-        document.body.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/Blue.png?v=1750515811275')";
-      },1500);
+        // Cambia aquí tu imagen de fondo (usa un link directo)
+        document.body.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/blueeee.jpg?v=1750516274274')";
+        document.body.style.backgroundColor = "transparent";
+      }, 1500);
     });
 
     const fechaEvento = new Date('2025-12-20T16:00:00-06:00').getTime();
