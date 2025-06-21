@@ -165,28 +165,30 @@
     }
     
     .decoracion {
-  position: fixed;          /* fija la imagen respecto a la ventana */
-  top: 150px;               /* distancia desde arriba (ajustable) */
-  left: 50%;                /* centrado horizontal */
-  transform: translateX(-50%);
+  position: fixed;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 250px;
-  max-width: 90vw;          /* para que no se salga en pantallas pequeñas */
-  opacity: 0.55;
-  pointer-events: none;     /* que no interfiera con clicks */
-  z-index: -1;              /* detrás del contenido */
+  max-width: 90vw;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
   animation: brillar 4s ease-in-out infinite;
+  display: block;
 }
 
     /* Animación mágica tipo "brillo" */
     @keyframes brillar {
       0%, 100% {
         filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #f9d976) brightness(1);
-        opacity: 0.85;
+        opacity: 0.15;
         transform: scale(1);
       }
       50% {
         filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px #f9d976) brightness(1.3);
-        opacity: 1;
+        opacity: 0.30;
         transform: scale(1.05);
       }
     }
