@@ -40,6 +40,27 @@
       50% { transform: translateY(-10px); }
     }
 
+    .fadeOut {
+      animation: fadeOut 1.5s forwards;
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(1.2); filter: blur(5px); }
+    }
+
+    #contenido {
+      display: none;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 1.5s ease;
+    }
+
+    #contenido.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
     .video, .galeria, .detalles {
       padding: 30px;
       background: #11263e;
@@ -68,6 +89,8 @@
       margin-top: 20px;
       cursor: pointer;
       transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .button:hover {
@@ -98,11 +121,10 @@
 </div>
 
 <audio id="musica" loop>
-  <source src="URL-DE-TU-MUSICA.mp3" type="audio/mpeg">
+  <source src="https://www.dl.dropboxusercontent.com/scl/fi/zpfqsywo7e6g7xh6xfflf/Lasso-Hasta-Ese-D-a-Lyric-Video.mp3?rlkey=74ch2xiq9bu0rwzo4u2jxmand&st=tdk4gq6t" type="audio/mpeg">
 </audio>
 
-<div id="contenido" style="display: none;">
-
+<div id="contenido">
   <div class="center">
     <h1>Vasti & Iván</h1>
     <h3>¡Nos casamos!</h3>
@@ -116,9 +138,10 @@
 
   <div class="detalles center">
     <h2>Detalles del Evento</h2>
-    <p>📍 **Lugar:** Hacienda , CDMX</p>
-    <p>📅 **Fecha:** Sábado, 15 de Noviembre de 2025</p>
-    <p>⏰ **Hora:** 5:00 PM</p>
+    <p>📅 <strong>Fecha:</strong> Viernes, 20 de diciembre de 2025</p>
+    <p>⏰ <strong>Hora:</strong> 4:00 PM</p>
+    <p>📍 <strong>Lugar:</strong> Iglesia en Su Presencia</p>
+    <a class="button" href="https://maps.app.goo.gl/N2YhQrtV5eGzxZRD9" target="_blank">Ver mapa</a>
 
     <div class="countdown" id="cuenta"></div>
 
@@ -130,7 +153,7 @@
     <p><strong>CLABE: 123456789012345678</strong></p>
     <p><strong>Nombre: Vasti Fernández</strong></p>
 
-    <button class="button" onclick="window.open('https://forms.gle/TU-FORMULARIO-DE-CONFIRMACION', '_blank')">Confirmar Asistencia</button>
+    <a class="button" href="https://forms.gle/TU-FORMULARIO-DE-CONFIRMACION" target="_blank">Confirmar Asistencia</a>
   </div>
 
   <div class="galeria center">
@@ -147,14 +170,19 @@
 
 <script>
 function abrirInvitacion() {
-  document.querySelector('.sobre').style.display = 'none';
-  document.querySelector('h2').style.display = 'none';
-  document.getElementById('contenido').style.display = 'block';
-  document.getElementById('musica').play();
+  document.querySelector('.sobre').classList.add('fadeOut');
+  document.querySelector('h2').classList.add('fadeOut');
+  setTimeout(() => {
+    document.querySelector('.center').style.display = 'none';
+    const contenido = document.getElementById('contenido');
+    contenido.style.display = 'block';
+    setTimeout(() => contenido.classList.add('visible'), 100);
+    document.getElementById('musica').play();
+  }, 1500);
 }
 
 // Cuenta regresiva
-const fechaBoda = new Date("Nov 15, 2025 17:00:00").getTime();
+const fechaBoda = new Date("Dec 20, 2025 16:00:00").getTime();
 const cuenta = document.getElementById("cuenta");
 
 setInterval(() => {
