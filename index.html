@@ -155,14 +155,14 @@
     }
     
     .decoracion {
-  position: absolute;
+  position: relative;
   top: 150px;     /* distancia desde arriba */
   left: 50%;     /* distancia desde la izquierda */
-  transform: translate(-50%, -50%);    
+  transform: translateX(-50%);    
   width: 120px;   /* tamaño */
-  opacity: 0.85;  /* transparencia: 0 = invisible, 1 = opaco */
+  opacity: 0.55;  /* transparencia: 0 = invisible, 1 = opaco */
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   animation: brillar 3s ease-in-out infinite;
 }
 
