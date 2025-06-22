@@ -279,12 +279,26 @@
 }
 
     #padres {
-  font-family: 'Dancing Script', cursive;
+  font-family: "Birthstone", cursive;
   font-size: 28px;
   text-align: center;
   color: #5b4a36;
   line-height: 1.6;
 }
+    
+@keyframes brilloSuave {
+  0%, 100% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 6px #d1b24caa, 0 0 10px #d1b24ccc;
+  }
+}
+
+.word-brillante {
+  animation: brilloSuave 2s ease-in-out;
+}
+
   </style>
 </head>
 <body>
@@ -401,12 +415,10 @@
         revealAll();
         animateWords();
         animateVersiculo();
-        animatePadres();
-        setInterval(() => {
-        animatePadresLoop();
-        }, 6000);
-
-
+        prepararPadresConBrillo();
+        loopBrilloPadres();
+        setInterval(loopBrilloPadres, 6000);
+    
         // Cambia aquí tu imagen de fondo (usa un link directo)
         document.documentElement.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/FONDO.png?v=1750529835990')";
         document.documentElement.style.backgroundColor = "transparent";
@@ -514,18 +526,10 @@
   });
 }
 
-function animatePadresLoop() {
+function prepararPadresConBrillo() {
   const padres = document.getElementById('padres');
-  const originalText = padres.getAttribute('data-original');
-
-  // Si no existe texto original aún, lo guardamos la primera vez
-  if (!originalText) {
-    padres.setAttribute('data-original', padres.textContent.trim());
-  }
-
-  const text = padres.getAttribute('data-original');
+  const text = padres.textContent;
   padres.innerHTML = '';
-
   const lines = text.split('\n');
 
   lines.forEach((line, idx) => {
@@ -543,18 +547,22 @@ function animatePadresLoop() {
       if (idx !== lines.length - 1) padres.appendChild(document.createElement('br'));
     }
   });
+}
 
-  const wordSpans = padres.querySelectorAll('.word');
+function loopBrilloPadres() {
+  const wordSpans = document.querySelectorAll('#padres .word');
   let delay = 0;
-  const delayStep = 120;
+  const delayStep = 300;
+
   wordSpans.forEach((span) => {
     setTimeout(() => {
-      span.classList.add('visible');
-      setTimeout(() => span.style.textShadow = 'none', 1200);
+      span.classList.add('word-brillante');
+      setTimeout(() => span.classList.remove('word-brillante'), 2000);
     }, delay);
     delay += delayStep;
   });
 }
+
   </script>
 </body>
 </html>
