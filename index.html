@@ -377,6 +377,7 @@
         musica.play().catch(()=>{});
         revealAll();
         animateWords();
+        animateVersiculo();
 
         // Cambia aquí tu imagen de fondo (usa un link directo)
         document.documentElement.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/FONDO.png?v=1750529835990')";
@@ -438,29 +439,7 @@
           if(idx !== lines.length - 1) historia.appendChild(document.createElement('br'));
         }
       });
-
-    function animateWords() {
-      const historia = document.getElementById('historia');
-      const text = historia.textContent;
-      historia.innerHTML = '';
-      const lines = text.split('\n');
-
-      lines.forEach((line, idx) => {
-        if (line.trim() === '') {
-          historia.appendChild(document.createElement('br'));
-        } else {
-          const words = line.trim().split(/\s+/);
-          words.forEach((word, i) => {
-            const span = document.createElement('span');
-            span.className = 'word';
-            span.textContent = word;
-            historia.appendChild(span);
-            if(i !== words.length - 1) historia.appendChild(document.createTextNode(' '));
-          });
-          if(idx !== lines.length - 1) historia.appendChild(document.createElement('br'));
-        }
-      });
-
+      
       const wordSpans = historia.querySelectorAll('.word');
       let delay = 0;
       const delayStep = 120;
@@ -472,6 +451,41 @@
         delay += delayStep;
       });
     }
+    
+  function animateVersiculo() {
+     const versiculo = document.getElementById('versiculo');
+     const text = versiculo.textContent;
+     versiculo.innerHTML = '';
+     const lines = text.split('\n');
+
+     lines.forEach((line, idx) => {
+     if (line.trim() === '') {
+      versiculo.appendChild(document.createElement('br'));
+      } else {
+      const words = line.trim().split(/\s+/);
+      words.forEach((word, i) => {
+        const span = document.createElement('span');
+        span.className = 'word';
+        span.textContent = word;
+        versiculo.appendChild(span);
+        if (i !== words.length - 1) versiculo.appendChild(document.createTextNode(' '));
+      });
+      if (idx !== lines.length - 1) versiculo.appendChild(document.createElement('br'));
+    }
+  });
+
+  const wordSpans = versiculo.querySelectorAll('.word');
+  let delay = 0;
+  const delayStep = 120;
+  wordSpans.forEach((span) => {
+    setTimeout(() => {
+      span.classList.add('visible');
+      setTimeout(() => span.style.textShadow = 'none', 1200);
+    }, delay);
+    delay += delayStep;
+  });
+}
+
   </script>
 </body>
 </html>
