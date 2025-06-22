@@ -317,11 +317,21 @@
         y con ustedes como testigos de nuestro “para siempre”.
       </p>
       
+      <h3 class="fade-in">Eclesiastés 4:9-10</h3>
+      
       <p class="fade-in" id="versiculo">
         Más valen dos que uno, pues mayor provecho obtienen de su trabajo.
         Y si uno de ellos cae, el otro lo levanta. 
         ¡Pero ay del que cae estando solo, pues no habrá quien lo levante!
       </p>
+      
+      <h3 class="fade-in">En compañia de nuestros padres</h3>
+      
+      <p class="fade-in" id="padres">
+        Francisco Fernández - María Ramírez 
+        Felipe Castañeda - Verónica Martínez 
+      </p>
+      
 
       <div class="separator fade-in">Detalles del Evento</div>
       <p class="fade-in">📅 <strong>Fecha:</strong> Sábado, 20 de diciembre de 2025</p>
@@ -378,6 +388,7 @@
         revealAll();
         animateWords();
         animateVersiculo();
+        animatePadres();
 
         // Cambia aquí tu imagen de fondo (usa un link directo)
         document.documentElement.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/FONDO.png?v=1750529835990')";
@@ -475,6 +486,40 @@
   });
 
   const wordSpans = versiculo.querySelectorAll('.word');
+  let delay = 0;
+  const delayStep = 120;
+  wordSpans.forEach((span) => {
+    setTimeout(() => {
+      span.classList.add('visible');
+      setTimeout(() => span.style.textShadow = 'none', 1200);
+    }, delay);
+    delay += delayStep;
+  });
+}
+
+  function animatePadres() {
+     const padres = document.getElementById('padres');
+     const text = padres.textContent;
+     padres.innerHTML = '';
+     const lines = text.split('\n');
+
+     lines.forEach((line, idx) => {
+     if (line.trim() === '') {
+      padres.appendChild(document.createElement('br'));
+      } else {
+      const words = line.trim().split(/\s+/);
+      words.forEach((word, i) => {
+        const span = document.createElement('span');
+        span.className = 'word';
+        span.textContent = word;
+        padres.appendChild(span);
+        if (i !== words.length - 1) padres.appendChild(document.createTextNode(' '));
+      });
+      if (idx !== lines.length - 1) padres.appendChild(document.createElement('br'));
+    }
+  });
+
+  const wordSpans = padres.querySelectorAll('.word');
   let delay = 0;
   const delayStep = 120;
   wordSpans.forEach((span) => {
