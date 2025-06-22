@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Invitación Boda Vasti & Iván</title>
+  <title>Invitación Boda Vasti e Iván</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -243,7 +243,7 @@
   left: 0;
   width: 100%;
   min-height: 100%;
-  background-image: url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/o.png?v=1750542645829');
+  background-image: url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/marco.png?v=1750625133161');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center top;
@@ -254,13 +254,13 @@
 }
 
 @keyframes resplandorMagico {
-  0%, 100% {
-    filter: drop-shadow(0 0 4px #fdf6e3) drop-shadow(0 0 8px #f5deb3);
+  35%, 100% {
+    filter: drop-shadow(0 0 4px #fdf6e3) drop-shadow(0 0 20px #f5deb3);
     opacity: 0.25;
   }
-  50% {
+  80% {
     filter: drop-shadow(0 0 10px #ffeaa7) drop-shadow(0 0 20px #ffdf91);
-    opacity: 0.4;
+    opacity: 0.8;
   }
 }
 
@@ -268,7 +268,7 @@
 </head>
 <body>
 
-  <img src="https://cdn.glitch.global/4d6c28ec-668e-4a0b-b114-118562562bad/SOBRE.png?v=1750487037349" id="sobre" class="sobre" alt="" draggable="false" />
+  <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/carta.png?v=1750625439311" id="sobre" class="sobre" alt="" draggable="false" />
   <h2 id="texto-sobre" style="text-align:center;font-size:28px;color:#b9994a;">
     Haz clic en el sobre para descubrir tu invitación
   </h2>
@@ -325,7 +325,7 @@
         porque ya tenemos todo lo que necesitamos:<br>
         el uno al otro… y a ti.<br>
         Pero si deseas apoyarnos,<br>
-        una aportación monetaria será muy bienvenida.</p>
+        una ofrenda monetaria será muy bienvenida.</p>
       <p class="fade-in"><strong>CLABE:</strong> 123456789012345678</p>
       <p class="fade-in"><strong>Nombre:</strong> Vasti Fernández</p>
 
@@ -342,7 +342,7 @@
     </div>
   </div>
 
-  <footer>Con cariño, Vasti & Iván 💙</footer>
+ <footer id="footer" style="display:none;">Con cariño, Vasti e Iván 💙</footer>
 
   <script>
     const sobre = document.getElementById('sobre');
@@ -357,6 +357,7 @@
         sobre.style.display = 'none';
         textoSobre.style.display = 'none';
         contenido.classList.add('visible');
+        document.getElementById('footer').style.display = 'block';
         musica.play().catch(()=>{});
         revealAll();
         animateWords();
