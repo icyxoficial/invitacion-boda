@@ -278,26 +278,26 @@
   }
 }
 
-    #padres {
-  font-family: "Birthstone", cursive;
-  font-size: 28px;
-  text-align: center;
-  color: #5b4a36;
-  line-height: 1.6;
-}
-    
 @keyframes brilloSuave {
-  0%, 100% {
-    text-shadow: none;
-  }
-  50% {
-    text-shadow: 0 0 6px #d1b24caa, 0 0 10px #d1b24ccc;
-  }
-}
+      0%, 100% {
+        text-shadow: none;
+      }
+      50% {
+        text-shadow: 0 0 6px #d1b24caa, 0 0 10px #d1b24ccc;
+      }
+    }
 
-.word-brillante {
-  animation: brilloSuave 2s ease-in-out;
-}
+    .word-brillante {
+      animation: brilloSuave 2s ease-in-out;
+    }
+
+    .word {
+      display: inline-block;
+      opacity: 1; /* Siempre visibles */
+      transition: text-shadow 0.6s ease;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
 
   </style>
 </head>
@@ -526,42 +526,42 @@
   });
 }
 
-function prepararPadresConBrillo() {
-  const padres = document.getElementById('padres');
-  const text = padres.textContent;
-  padres.innerHTML = '';
-  const lines = text.split('\n');
+  function prepararPadresConBrillo() {
+      const padres = document.getElementById('padres');
+      const text = padres.textContent;
+      padres.innerHTML = '';
+      const lines = text.split('\n');
 
-  lines.forEach((line, idx) => {
-    if (line.trim() === '') {
-      padres.appendChild(document.createElement('br'));
-    } else {
-      const words = line.trim().split(/\s+/);
-      words.forEach((word, i) => {
-        const span = document.createElement('span');
-        span.className = 'word';
-        span.textContent = word;
-        padres.appendChild(span);
-        if (i !== words.length - 1) padres.appendChild(document.createTextNode(' '));
+      lines.forEach((line, idx) => {
+        if (line.trim() === '') {
+          padres.appendChild(document.createElement('br'));
+        } else {
+          const words = line.trim().split(/\s+/);
+          words.forEach((word, i) => {
+            const span = document.createElement('span');
+            span.className = 'word visible'; // Siempre visible
+            span.textContent = word;
+            padres.appendChild(span);
+            if (i !== words.length - 1) padres.appendChild(document.createTextNode(' '));
+          });
+          if (idx !== lines.length - 1) padres.appendChild(document.createElement('br'));
+        }
       });
-      if (idx !== lines.length - 1) padres.appendChild(document.createElement('br'));
     }
-  });
-}
 
-function loopBrilloPadres() {
-  const wordSpans = document.querySelectorAll('#padres .word');
-  let delay = 0;
-  const delayStep = 300;
+    function loopBrilloPadres() {
+      const wordSpans = document.querySelectorAll('#padres .word');
+      let delay = 0;
+      const delayStep = 300;
 
-  wordSpans.forEach((span) => {
-    setTimeout(() => {
-      span.classList.add('word-brillante');
-      setTimeout(() => span.classList.remove('word-brillante'), 2000);
-    }, delay);
-    delay += delayStep;
-  });
-}
+      wordSpans.forEach((span) => {
+        setTimeout(() => {
+          span.classList.add('word-brillante');
+          setTimeout(() => span.classList.remove('word-brillante'), 2000);
+        }, delay);
+        delay += delayStep;
+      });
+    }
 
   </script>
 </body>
