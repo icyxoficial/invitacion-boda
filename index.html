@@ -56,7 +56,17 @@
         margin: 0 8px;
       }
     }
-
+    
+    @media (max-width: 480px) {
+  .separator {
+    flex-direction: column;
+    text-align: center;
+  }
+  .separator::before,
+  .separator::after {
+    display: none;
+  }
+}
     .flower-top-left, .flower-bottom-right {
       display: none;
     }
@@ -284,7 +294,7 @@
      class="nombre-novios fade-in" />
 
       <h2 class="fade-in">¡Nos casamos!</h2>
-      <p class="fade-in">Síguenos en un día mágico e inolvidable.</p>
+      <p class="fade-in">Dios nos ha concedido la gracia de conocernos y por ello queremos celebrar nuestro amor ante sus ojos.</p>
       
       <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/n.png?v=1750624664272" class="decoracion magica" alt="decoración" />
 
@@ -305,6 +315,12 @@
 
         una historia escrita con amor verdadero,  
         y con ustedes como testigos de nuestro “para siempre”.
+      </p>
+      
+      <p class="fade-in" id="versiculo">
+        Más valen dos que uno, pues mayor provecho obtienen de su trabajo.
+        Y si uno de ellos cae, el otro lo levanta. 
+        ¡Pero ay del que cae estando solo, pues no habrá quien lo levante!
       </p>
 
       <div class="separator fade-in">Detalles del Evento</div>
@@ -400,6 +416,28 @@
       },{threshold:0.1});
       els.forEach(el=>io.observe(el));
     }
+
+    function animateWords() {
+      const historia = document.getElementById('historia');
+      const text = historia.textContent;
+      historia.innerHTML = '';
+      const lines = text.split('\n');
+
+      lines.forEach((line, idx) => {
+        if (line.trim() === '') {
+          historia.appendChild(document.createElement('br'));
+        } else {
+          const words = line.trim().split(/\s+/);
+          words.forEach((word, i) => {
+            const span = document.createElement('span');
+            span.className = 'word';
+            span.textContent = word;
+            historia.appendChild(span);
+            if(i !== words.length - 1) historia.appendChild(document.createTextNode(' '));
+          });
+          if(idx !== lines.length - 1) historia.appendChild(document.createElement('br'));
+        }
+      });
 
     function animateWords() {
       const historia = document.getElementById('historia');
