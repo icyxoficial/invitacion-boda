@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Invitación Boda Vasti e Iván</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -88,7 +90,7 @@
       padding:60px 50px 70px; position:relative; z-index:10;
     }
 
-    h1,h2,h3 {
+    h1,h2,h3,h4 {
       font-family:'Great Vibes', cursive;
       text-align:center; letter-spacing:0.07em;
       color:#5b4a36;
@@ -96,6 +98,8 @@
     h1 { font-size:72px; margin-bottom:10px; }
     h2 { font-size:44px; margin-bottom:24px; }
     h3 { font-size:34px; margin:48px 0 14px; }
+    h4 { font-size:44px; margin:48px 0 14px; }
+
 
     p, li {
       font-size:20px; line-height:1.6;
@@ -274,6 +278,13 @@
   }
 }
 
+    #padres {
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  text-align: center;
+  color: #5b4a36;
+  line-height: 1.6;
+}
   </style>
 </head>
 <body>
@@ -325,11 +336,13 @@
         ¡Pero ay del que cae estando solo, pues no habrá quien lo levante!
       </p>
       
-      <h3 class="fade-in">En compañia de nuestros padres</h3>
+      <h4 class="fade-in">En compañia de nuestros padres</h4>
       
       <p class="fade-in" id="padres">
-        Francisco Fernández - María Ramírez 
-        Felipe Castañeda - Verónica Martínez 
+        Francisco Fernández 
+        María Ramírez 
+        Felipe Castañeda
+        Verónica Martínez 
       </p>
       
 
@@ -389,6 +402,10 @@
         animateWords();
         animateVersiculo();
         animatePadres();
+        setInterval(() => {
+        animatePadresLoop();
+        }, 6000);
+
 
         // Cambia aquí tu imagen de fondo (usa un link directo)
         document.documentElement.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/FONDO.png?v=1750529835990')";
@@ -497,16 +514,24 @@
   });
 }
 
-  function animatePadres() {
-     const padres = document.getElementById('padres');
-     const text = padres.textContent;
-     padres.innerHTML = '';
-     const lines = text.split('\n');
+function animatePadresLoop() {
+  const padres = document.getElementById('padres');
+  const originalText = padres.getAttribute('data-original');
 
-     lines.forEach((line, idx) => {
-     if (line.trim() === '') {
+  // Si no existe texto original aún, lo guardamos la primera vez
+  if (!originalText) {
+    padres.setAttribute('data-original', padres.textContent.trim());
+  }
+
+  const text = padres.getAttribute('data-original');
+  padres.innerHTML = '';
+
+  const lines = text.split('\n');
+
+  lines.forEach((line, idx) => {
+    if (line.trim() === '') {
       padres.appendChild(document.createElement('br'));
-      } else {
+    } else {
       const words = line.trim().split(/\s+/);
       words.forEach((word, i) => {
         const span = document.createElement('span');
@@ -530,7 +555,6 @@
     delay += delayStep;
   });
 }
-
   </script>
 </body>
 </html>
