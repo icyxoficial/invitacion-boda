@@ -303,7 +303,7 @@
   </h2>
 
   <audio id="musica" preload="auto" loop>
-    <source src="https://www.dl.dropboxusercontent.com/scl/fi/zpfqsywo7e6g7xh6xfflf/Lasso-Hasta-Ese-D-a-Lyric-Video.mp3?rlkey=74ch2xiq9bu0rwzo4u2jxmand&st=tdk4gq6t" type="audio/mpeg" />
+    <source src="htt750653196952" type="audio/mpeg" />
   </audio>
 
   <div id="invitation-content">
@@ -337,9 +337,12 @@
       <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/ecle.png?v=1750636652574" alt="Eclesiastés 4:9-10" class="fade-in" style="max-width: 100%; height: auto; margin: 10px auto; display: block;" />
       
       <p class="fade-in" id="versiculo">
-        Más valen dos que uno, pues mayor provecho obtienen de su trabajo.
-        Y si uno de ellos cae, el otro lo levanta. 
-        ¡Pero ay del que cae estando solo, pues no habrá quien lo levante!
+        Mejor son dos que uno,
+        porque obtienen más fruto de su esfuerzo.
+        Si caen,
+        el uno levanta al otro. 
+        ¡Ay del que cae
+        y no tiene quien lo levante!
       </p>
       
        <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/padres.png?v=1750636995600" alt="En compañia" class="fade-in" style="max-width: 100%; height: auto; margin: 10px auto; display: block;" />
@@ -427,8 +430,9 @@ sobre.addEventListener('click', () => {
     animateWords();
     animateVersiculo();
 
-    // Música
+    musica.currentTime = 0;
     musica.play().catch(() => {});
+
 
     // 3.- Ahora baja la opacidad del video en 3 segundos
     humo.style.transition = 'opacity 3s ease-in-out';
