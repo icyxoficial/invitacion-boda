@@ -274,7 +274,7 @@
       /* Efecto inicial para invitación */
   #invitation-content {
     opacity: 0;
-    filter: blur(8px);
+    filter: blur(50px);
     transition: opacity 2.5s ease, filter 2.5s ease;
   }
 
@@ -365,7 +365,8 @@
         el uno al otro… y a ti.<br>
         Pero si deseas apoyarnos,<br>
         una ofrenda monetaria será muy bienvenida.</p>
-      <p class="fade-in"><strong>CLABE:</strong> 123456789012345678</p>
+      <p class="fade-in"><strong>CLABE:</strong> 012180015873872818</p>
+      <p class="fade-in"><strong>Tarjeta de débito:</strong>4152313670866396</p>
       <p class="fade-in"><strong>Nombre:</strong> Vasti Fernández</p>
 
       <div class="fade-in" style="text-align:center;margin:30px 0;">
@@ -376,63 +377,71 @@
  <footer id="footer" style="display:none;">Con cariño, Vasti e Iván 💙</footer>
 
 <script>
-  const sobre = document.getElementById('sobre');
-  const textoSobre = document.getElementById('texto-sobre');
-  const contenido = document.getElementById('invitation-content');
-  const musica = document.getElementById('musica');
-  const humo = document.getElementById('humo-magico');
-  const sonidoMagico = document.getElementById('sonido-magico');
-  const footer = document.getElementById('footer');
+const sobre = document.getElementById('sobre');
+const textoSobre = document.getElementById('texto-sobre');
+const contenido = document.getElementById('invitation-content');
+const musica = document.getElementById('musica');
+const humo = document.getElementById('humo-magico');
+const sonidoMagico = document.getElementById('sonido-magico');
+const footer = document.getElementById('footer');
 
-  sobre.addEventListener('click', () => {
-    // Animar fadeOut del sobre y texto
-    sobre.classList.add('fadeOut');
-    textoSobre.classList.add('fadeOut');
+sobre.addEventListener('click', () => {
+  // 1.- Fade out sobre y texto en 2 segundos
+  sobre.classList.add('fadeOut');
+  textoSobre.classList.add('fadeOut');
 
-    // Mostrar video humo y sonido mágico
+  // Al terminar el fadeOut (2s) los ocultamos y mostramos el video humo
+  setTimeout(() => {
+    sobre.style.display = 'none';
+    textoSobre.style.display = 'none';
+
+    // Mostrar video humo con opacidad 0.4 (40%)
     humo.style.display = 'block';
-    humo.style.opacity = '0.4'; // opacidad 40%
+    humo.style.opacity = '0';          // Inicialmente opaco 0 para animar entrada
+    humo.style.transition = 'opacity 0.5s ease-in-out';
+    setTimeout(() => {
+      humo.style.opacity = '0.85';      // Subir opacidad a 0.4 suavemente
+    }, 50);
+
     sonidoMagico.currentTime = 0;
     sonidoMagico.play().catch(() => {});
 
-    // Después de 2 segundos, comenzar a desvanecer el video humo (más lento: 8s)
+  }, 500);
+
+  // 2.- Después de 3 segundos desde el click (1 seg después del video aparecer)
+  setTimeout(() => {
+    // Mostrar invitación (sin blur ni filtro extra)
+    contenido.classList.add('visible');
+    footer.style.display = 'block';
+
+    // Cambiar fondo y agregar marco mágico
+    document.documentElement.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/F.jpg?v=1750632653147')";
+    document.documentElement.style.backgroundColor = "transparent";
+
+    const marco = document.createElement('div');
+    marco.classList.add('marco-magico-scroll');
+    document.body.appendChild(marco);
+
+    // Animaciones de texto
+    revealAll();
+    animateWords();
+    animateVersiculo();
+
+    // Música
+    musica.play().catch(() => {});
+
+    // 3.- Ahora baja la opacidad del video en 3 segundos
+    humo.style.transition = 'opacity 3s ease-in-out';
+    humo.style.opacity = '0';
+
+    // 4.- Ocultamos el video cuando termine la transición
     setTimeout(() => {
-      humo.style.transition = 'opacity 2s ease-in-out';
-      humo.style.opacity = '0';
+      humo.style.display = 'none';
+    }, 4000);
 
-      // Iniciar invitación con efecto blur + fade-in justo cuando empieza el fadeOut del humo
-      contenido.classList.add('visible');
-      footer.style.display = 'block';
+  }, 3000);
+});
 
-      // Cambiar fondo y agregar marco mágico
-      document.documentElement.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/F.jpg?v=1750632653147')";
-      document.documentElement.style.backgroundColor = "transparent";
-
-      const marco = document.createElement('div');
-      marco.classList.add('marco-magico-scroll');
-      document.body.appendChild(marco);
-
-      // Animaciones de texto
-      revealAll();
-      animateWords();
-      animateVersiculo();
-
-      // Iniciar música
-      musica.play().catch(() => {});
-
-      // Ocultar sobre y texto después de 1.5 segundos (para que el fadeOut termine)
-      setTimeout(() => {
-        sobre.style.display = 'none';
-        textoSobre.style.display = 'none';
-      }, 1500);
-
-      // Ocultar video humo al terminar su fadeOut (8s)
-      setTimeout(() => {
-        humo.style.display = 'none';
-      }, 3000);
-
-    }, 2000);
-  });
 
   // Funciones para animar texto e intersección
   function revealAll(){
