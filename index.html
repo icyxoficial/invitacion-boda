@@ -274,6 +274,16 @@
   </style>
 </head>
 <body>
+  
+    <!-- 🔮 Video de humo mágico -->
+  <video id="humo-magico" autoplay muted playsinline style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:9999;pointer-events:none;">
+    <source src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/Smoke%20Transition%20v2.mp4?v=1750649499075" type="video/mp4" />
+  </video>
+
+  <!-- 🔔 Sonido mágico -->
+  <audio id="sonido-magico" preload="auto">
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_b276bdbed6.mp3" type="audio/mpeg" />
+  </audio>
 
   <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/carta.png?v=1750632195083" id="sobre" class="sobre" alt="" draggable="false" />
   <h2 id="texto-sobre" style="text-align:center;font-size:28px;color:#b9994a;">
@@ -353,132 +363,139 @@
 
  <footer id="footer" style="display:none;">Con cariño, Vasti e Iván 💙</footer>
 
-  <script>
-    const sobre = document.getElementById('sobre');
-    const textoSobre = document.getElementById('texto-sobre');
-    const contenido = document.getElementById('invitation-content');
-    const musica = document.getElementById('musica');
+<script>
+  const sobre = document.getElementById('sobre');
+  const textoSobre = document.getElementById('texto-sobre');
+  const contenido = document.getElementById('invitation-content');
+  const musica = document.getElementById('musica');
+  const humo = document.getElementById('humo-magico');
+  const sonidoMagico = document.getElementById('sonido-magico');
+  const footer = document.getElementById('footer');
 
-    sobre.addEventListener('click', () => {
-      sobre.classList.add('fadeOut');
-      textoSobre.classList.add('fadeOut');
-      setTimeout(() => {
-        sobre.style.display = 'none';
-        textoSobre.style.display = 'none';
-        contenido.classList.add('visible');
-        document.getElementById('footer').style.display = 'block';
-        musica.play().catch(()=>{});
-        revealAll();
-        animateWords();
-        animateVersiculo();
-  
-        // Cambia aquí tu imagen de fondo (usa un link directo)
-        document.documentElement.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/F.jpg?v=1750632653147')";
-        document.documentElement.style.backgroundColor = "transparent";
-          // 🔥 Fondo marco mágico que se adapta al scroll
-  const marcoScroll = document.createElement('div');
-  marcoScroll.classList.add('marco-magico-scroll');
-  document.body.appendChild(marcoScroll);
+  sobre.addEventListener('click', () => {
+    // Animar fadeOut del sobre y texto
+    sobre.classList.add('fadeOut');
+    textoSobre.classList.add('fadeOut');
 
-}, 1500);
-    });
-    
-    const fechaEvento = new Date('2025-12-20T16:00:00-06:00').getTime();
-    const cuenta = document.getElementById('cuenta');
-    setInterval(() => {
-      const diff = fechaEvento - Date.now();
-      if(diff>0){
-        const d=Math.floor(diff/86400000);
-        const h=Math.floor((diff%86400000)/3600000);
-        const m=Math.floor((diff%3600000)/60000);
-        const s=Math.floor((diff%60000)/1000);
-        cuenta.textContent=`Faltan ${d}d ${h}h ${m}m ${s}s para el gran día 💍`;
-      } else {
-        cuenta.textContent='¡Hoy es el gran día! 🎉💖';
-      }
-    },1000);
+    // Mostrar video humo y sonido mágico
+    humo.style.display = 'block';
+    humo.style.opacity = '40';
+    sonidoMagico.currentTime = 0;
+    sonidoMagico.play().catch(() => {});
 
-    function revealAll(){
-      const els = document.querySelectorAll('.fade-in');
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e=>{
-          if(e.isIntersecting){
-            e.target.classList.add('visible');
-            io.unobserve(e.target);
-          }
-        });
-      },{threshold:0.1});
-      els.forEach(el=>io.observe(el));
-    }
+    // Después de 2 segundos, comenzar a desvanecer el video humo
+    setTimeout(() => {
+      humo.style.transition = 'opacity 2.5s ease-in-out';
+      humo.style.opacity = '0';
+    }, 2000);
 
-    function animateWords() {
-      const historia = document.getElementById('historia');
-      const text = historia.textContent;
-      historia.innerHTML = '';
-      const lines = text.split('\n');
+    // Después de 5 segundos total, ocultar video humo, sobre y texto, mostrar invitación y footer, iniciar música y animaciones
+    setTimeout(() => {
+      humo.style.display = 'none';
+      sobre.style.display = 'none';
+      textoSobre.style.display = 'none';
 
-      lines.forEach((line, idx) => {
-        if (line.trim() === '') {
-          historia.appendChild(document.createElement('br'));
-        } else {
-          const words = line.trim().split(/\s+/);
-          words.forEach((word, i) => {
-            const span = document.createElement('span');
-            span.className = 'word';
-            span.textContent = word;
-            historia.appendChild(span);
-            if(i !== words.length - 1) historia.appendChild(document.createTextNode(' '));
-          });
-          if(idx !== lines.length - 1) historia.appendChild(document.createElement('br'));
+      contenido.classList.add('visible');
+      footer.style.display = 'block';
+
+      musica.play().catch(() => {});
+
+      // Revelar elementos con scroll
+      revealAll();
+      animateWords();
+      animateVersiculo();
+
+      // Cambiar fondo y agregar marco mágico
+      document.documentElement.style.backgroundImage = "url('https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/F.jpg?v=1750632653147')";
+      document.documentElement.style.backgroundColor = "transparent";
+
+      const marco = document.createElement('div');
+      marco.classList.add('marco-magico-scroll');
+      document.body.appendChild(marco);
+    }, 5000);
+  });
+
+  // Funciones para animar texto e intersección
+  function revealAll(){
+    const els = document.querySelectorAll('.fade-in');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
         }
       });
-      
-      const wordSpans = historia.querySelectorAll('.word');
-      let delay = 0;
-      const delayStep = 120;
-      wordSpans.forEach((span) => {
-        setTimeout(() => {
-          span.classList.add('visible');
-          setTimeout(() => span.style.textShadow = 'none', 1200);
-        }, delay);
-        delay += delayStep;
-      });
-    }
-    
-  function animateVersiculo() {
-     const versiculo = document.getElementById('versiculo');
-     const text = versiculo.textContent;
-     versiculo.innerHTML = '';
-     const lines = text.split('\n');
+    }, {threshold: 0.1});
+    els.forEach(el => io.observe(el));
+  }
 
-     lines.forEach((line, idx) => {
-     if (line.trim() === '') {
-      versiculo.appendChild(document.createElement('br'));
+  function animateWords() {
+    const historia = document.getElementById('historia');
+    const text = historia.textContent;
+    historia.innerHTML = '';
+    const lines = text.split('\n');
+
+    lines.forEach((line, idx) => {
+      if (line.trim() === '') {
+        historia.appendChild(document.createElement('br'));
       } else {
-      const words = line.trim().split(/\s+/);
-      words.forEach((word, i) => {
-        const span = document.createElement('span');
-        span.className = 'word';
-        span.textContent = word;
-        versiculo.appendChild(span);
-        if (i !== words.length - 1) versiculo.appendChild(document.createTextNode(' '));
-      });
-      if (idx !== lines.length - 1) versiculo.appendChild(document.createElement('br'));
-    }
-  });
+        const words = line.trim().split(/\s+/);
+        words.forEach((word, i) => {
+          const span = document.createElement('span');
+          span.className = 'word';
+          span.textContent = word;
+          historia.appendChild(span);
+          if(i !== words.length - 1) historia.appendChild(document.createTextNode(' '));
+        });
+        if(idx !== lines.length - 1) historia.appendChild(document.createElement('br'));
+      }
+    });
 
-  const wordSpans = versiculo.querySelectorAll('.word');
-  let delay = 0;
-  const delayStep = 120;
-  wordSpans.forEach((span) => {
-    setTimeout(() => {
-      span.classList.add('visible');
-      setTimeout(() => span.style.textShadow = 'none', 1200);
-    }, delay);
-    delay += delayStep;
-  });
-}
+    const wordSpans = historia.querySelectorAll('.word');
+    let delay = 0;
+    const delayStep = 120;
+    wordSpans.forEach((span) => {
+      setTimeout(() => {
+        span.classList.add('visible');
+        setTimeout(() => span.style.textShadow = 'none', 1200);
+      }, delay);
+      delay += delayStep;
+    });
+  }
 
-  </script>
+  function animateVersiculo() {
+    const versiculo = document.getElementById('versiculo');
+    const text = versiculo.textContent;
+    versiculo.innerHTML = '';
+    const lines = text.split('\n');
+
+    lines.forEach((line, idx) => {
+      if (line.trim() === '') {
+        versiculo.appendChild(document.createElement('br'));
+      } else {
+        const words = line.trim().split(/\s+/);
+        words.forEach((word, i) => {
+          const span = document.createElement('span');
+          span.className = 'word';
+          span.textContent = word;
+          versiculo.appendChild(span);
+          if (i !== words.length - 1) versiculo.appendChild(document.createTextNode(' '));
+        });
+        if (idx !== lines.length - 1) versiculo.appendChild(document.createElement('br'));
+      }
+    });
+
+    const wordSpans = versiculo.querySelectorAll('.word');
+    let delay = 0;
+    const delayStep = 120;
+    wordSpans.forEach((span) => {
+      setTimeout(() => {
+        span.classList.add('visible');
+        setTimeout(() => span.style.textShadow = 'none', 1200);
+      }, delay);
+      delay += delayStep;
+    });
+  }
+</script>
 </body>
 </html>
