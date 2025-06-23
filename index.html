@@ -336,6 +336,7 @@
       <p class="fade-in" id="historia">
         Desde el primer instante, nuestros silencios se entendieron,  
         nuestras risas se hicieron eco… y nuestras miradas hablaron sin miedo.
+
         No todo fue fácil, pero cada paso nos enseñó a elegirnos.  
         A tomarnos de la mano, incluso en la tormenta.  
         A construir, a sanar, a soñar.
@@ -355,14 +356,8 @@
       </p>
       
        <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/padres.png?v=1750636995600" alt="En compañia de nuestros padres" class="fade-in" style="max-width: 100%; height: auto; margin: 10px auto; display: block;" />
-      
-      <p class="fade-in" id="padres">
-        Francisco Fernández 
-        María Ramírez 
-        Felipe Castañeda
-        Verónica Martínez 
-      </p>
-      
+       <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/nom%20bp.png?v=1750637833251" alt="En padres" class="fade-in" style="max-width: 100%; height: auto; margin: 10px auto; display: block;" />
+
 
       <div class="separator fade-in">Detalles del Evento</div>
       <p class="fade-in">📅 <strong>Fecha:</strong> Sábado, 20 de diciembre de 2025</p>
@@ -529,43 +524,6 @@
     delay += delayStep;
   });
 }
-
-  function prepararPadresConBrillo() {
-      const padres = document.getElementById('padres');
-      const text = padres.textContent;
-      padres.innerHTML = '';
-      const lines = text.split('\n');
-
-      lines.forEach((line, idx) => {
-        if (line.trim() === '') {
-          padres.appendChild(document.createElement('br'));
-        } else {
-          const words = line.trim().split(/\s+/);
-          words.forEach((word, i) => {
-            const span = document.createElement('span');
-            span.className = 'word visible'; // Siempre visible
-            span.textContent = word;
-            padres.appendChild(span);
-            if (i !== words.length - 1) padres.appendChild(document.createTextNode(' '));
-          });
-          if (idx !== lines.length - 1) padres.appendChild(document.createElement('br'));
-        }
-      });
-    }
-
-    function loopBrilloPadres() {
-      const wordSpans = document.querySelectorAll('#padres .word');
-      let delay = 0;
-      const delayStep = 300;
-
-      wordSpans.forEach((span) => {
-        setTimeout(() => {
-          span.classList.add('word-brillante');
-          setTimeout(() => span.classList.remove('word-brillante'), 2000);
-        }, delay);
-        delay += delayStep;
-      });
-    }
 
   </script>
 </body>
