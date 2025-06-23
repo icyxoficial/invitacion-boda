@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Invitación Boda Vasti e Iván</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -42,16 +40,14 @@
       .container {
         padding: 40px 20px 50px;
       }
-      h1 { font-size: 48px; }
       h2 { font-size: 32px; }
-      h3 { font-size: 26px; }
       p, li { font-size: 18px; }
       .btn { font-size: 18px; padding: 12px 28px; }
 
       /* Ajustes para centrar y ajustar "Nuestra Historia" */
       .separator {
         font-size: 22px;
-        margin: 30px 5px 30px;
+        margin: 30px 10px 30px;
       }
       .separator::before,
       .separator::after {
@@ -89,7 +85,14 @@
       box-shadow:0 6px 20px rgba(75,63,50,0.2);
       padding:60px 50px 70px; position:relative; z-index:10;
     }
-  
+    h1,h2,h3 {
+      font-family:'Great Vibes', cursive;
+      text-align:center; letter-spacing:0.07em;
+      color:#5b4a36;
+    }
+    h1 { font-size:72px; margin-bottom:10px; }
+    h2 { font-size:44px; margin-bottom:24px; }
+    h3 { font-size:34px; margin:48px 0 14px; }  
     p, li {
       font-size:16px; line-height:1.6;
       color:#000000; margin:12px auto;
@@ -158,14 +161,13 @@
 .word {
   display: inline-block;
   opacity: 0;
-  transition: opacity 1s ease, transform 1s ease, text-shadow 0.6s ease;
+  transition: opacity .4s ease, text-shadow 0.6s ease;
   margin-right: 4px;
   white-space: nowrap;
 }
 
 .word.visible {
   opacity: 1;
-  transform: translateY(0);
   text-shadow: 0 0 4px #d1b24caa, 0 0 7px #d1b24ccc;
 }
 
@@ -255,7 +257,7 @@
   z-index: -2;
   opacity: 0.25;
   pointer-events: none;
-  animation: resplandorMagico 6s ease-in-out infinite;
+  animation: resplandorMagico 3s ease-in-out infinite;
 }
 
 @keyframes resplandorMagico {
@@ -268,27 +270,6 @@
     opacity: 0.8;
   }
 }
-
-@keyframes brilloSuave {
-      0%, 100% {
-        text-shadow: none;
-      }
-      50% {
-        text-shadow: 0 0 6px #d1b24caa, 0 0 10px #d1b24ccc;
-      }
-    }
-
-    .word-brillante {
-      animation: brilloSuave 2s ease-in-out;
-    }
-
-    .word {
-      display: inline-block;
-      opacity: 1; /* Siempre visibles */
-      transition: text-shadow 0.6s ease;
-      margin-right: 4px;
-      white-space: nowrap;
-    }
 
   </style>
 </head>
@@ -339,7 +320,7 @@
         ¡Pero ay del que cae estando solo, pues no habrá quien lo levante!
       </p>
       
-       <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/padres.png?v=1750636995600" alt="En compañia de nuestros padres" class="fade-in" style="max-width: 100%; height: auto; margin: 10px auto; display: block;" />
+       <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/padres.png?v=1750636995600" alt="En compañia" class="fade-in" style="max-width: 100%; height: auto; margin: 10px auto; display: block;" />
        <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/nom%20bp.png?v=1750637833251" alt="En padres" class="fade-in" style="max-width: 100%; height: auto; margin: 10px auto; display: block;" />
 
 
