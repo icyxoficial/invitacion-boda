@@ -283,25 +283,38 @@
     opacity: 1;
     filter: blur(0);
   }
+   .imagen-borde {
+  width: 100%;
+  height: auto;
+  margin: 10px auto;
+  display: block;
+  max-width: 100%;
+}
 
-    /* Solo en móviles: hasta 768px */
 @media (max-width: 768px) {
-  .contenedor-imagen-movil {
-    width: 100vw;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-  }
-
-  .imagen-expandida-movil {
-    width: 150vw;
-    max-width: none;
-    position: relative;
-    left: -25vw;
-    margin: 0;
+  .imagen-borde {
+    margin-left: calc(-1 * (20px)); /* contrarresta el padding lateral del body */
+    margin-right: calc(-1 * (20px));
+    width: calc(100% + 40px);       /* expande al 100% real de la pantalla */
   }
 }
 
+@media (max-width: 480px) {
+  .imagen-borde {
+    margin-left: calc(-1 * (10px));
+    margin-right: calc(-1 * (10px));
+    width: calc(100% + 1px);
+  }
+}
+    .imagen-centrada {
+  display: block;
+  max-width: 150%;
+  height: auto;
+  margin: 10px auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
   </style>
 </head>
 <body>
@@ -331,13 +344,13 @@
      alt="Vasti e Iván" 
      class="nombre-novios fade-in" />
 
-      <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/gnu.png?v=1750657765033" alt="¡Nos casamos!" class="fade-in imagen-borde" />
+      <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/gnu.png?v=1750657765033" alt="¡Nos casamos!" class="fade-in" style="max-width: 120%; height: auto; margin: 1px auto; display: block; transform: translateX(-8%);" />
 
       <p class="fade-in">Dios nos ha concedido la gracia de conocernos y por ello queremos celebrar nuestro amor ante sus ojos.</p>
       
       <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/n.png?v=1750624664272" class="decoracion magica" alt="decoración" />
 
-      <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/ghistory.png?v=1750657986025" alt="Nuestra Historia" class="fade-in" style="max-width: 100%; height: auto; margin: 1px auto; display: block;" />
+      <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/ghistory.png?v=1750657986025" alt="Nuestra Historia" class="fade-in" style="max-width: 120%; height: auto; margin: 1px auto; display: block; transform: translateX(-8%);" />
      
       <p class="fade-in" id="historia">
         Desde el primer instante, nuestros silencios se entendieron,  
@@ -353,7 +366,7 @@
         y con ustedes como testigos de nuestro “para siempre”.
       </p>
       
-      <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/GVER.png?v=1750658276781" alt="Eclesiastés 4:9-10" class="fade-in" style="max-width: 100%; height: auto; margin: 10px auto; display: block;" />
+      <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/GVER.png?v=1750658276781" alt="Eclesiastés 4:9-10" class="fade-in" style="max-width: 120%; height: auto; margin: 10px auto; display: block; transform: translateX(-10%);" />
       
       <p class="fade-in" id="versiculo">
         Mejor son dos que uno,
@@ -364,12 +377,7 @@
         y no tiene quien lo levante!
       </p>
       
-       <div class="contenedor-imagen-movil">
-  <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/gpadres.png?v=1750658279645"
-       alt="En compañía"
-       class="imagen-expandida-movil" />
-</div>
-      
+       <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/gpadres.png?v=1750658279645" alt="En compañia" class="fade-in" style="max-width: 125%; height: auto; margin: 10px auto; display: block; transform: translateX(-10%);" />
        <img src="https://cdn.glitch.global/87dea24a-9e69-47ea-b43b-db30b7e6a2c3/gpadres.png?v=1750656689913" alt="En padres" class="fade-in" style="max-width: 100%; height: auto; margin: 5px auto; display: block;" />
 
 
